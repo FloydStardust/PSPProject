@@ -3,20 +3,12 @@ package com.psp.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Entity
-public class Role {
+public class RoleType {
     @Id
     @GeneratedValue
     Long id;
-
-    @ManyToOne
-    Project project;
-
-    @ManyToOne
-    User user;
-
-    @ManyToOne
-    RoleType roleType;
+    String name;
 }

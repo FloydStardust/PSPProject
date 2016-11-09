@@ -23,9 +23,6 @@ public class User {
     String email;
     String passwordDigest;
 
-    @OneToMany
-    List<Project> projects;
-
     public static User create(String name, String password, String email) {
         User user = new User();
         user.name = name;
