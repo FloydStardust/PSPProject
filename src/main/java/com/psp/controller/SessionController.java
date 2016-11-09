@@ -31,7 +31,7 @@ public class SessionController {
         return "signup";
     }
     @PostMapping("/signup")
-    String singupAction(@RequestParam String username,
+    String signupAction(@RequestParam String username,
                         @RequestParam String password,
                         @RequestParam String email,
                         HttpServletRequest request) {
