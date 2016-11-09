@@ -5,13 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+
 @Entity
-public class Project {
+public class TrackRecord {
     @Id
     @GeneratedValue
     Long id;
-    String name;
+
+    String description; // 跟踪记录
+
+    Boolean happened;   // 风险是否变成问题
 
     @ManyToOne
-    User creator;
+    Risk risk;          // 所属的风险
 }
