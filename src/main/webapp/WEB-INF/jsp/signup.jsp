@@ -23,9 +23,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/login">登录</a></li>
-                <li><a href="/signup">注册</a></li>
-                <li><a href="/secured">保密资源</a></li>
+                <li class="active"><a href="/qa-monitor/login">登录</a></li>
+                <li><a href="/qa-monitor/signup">注册</a></li>
+                <li><a href="/qa-monitor/secured">保密资源</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -36,17 +36,17 @@
         <form class="form-horizontal"  action="/qa-monitor/signup" method="post">
             <div class="form-group">
                 <div class="">
-                    <input type="text" class="form-control" id="username" placeholder="用户名">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
                 </div>
             </div>
             <div class="form-group">
                 <div class="">
-                    <input type="email" class="form-control" id="email" placeholder="邮箱">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="邮箱">
                 </div>
             </div>
             <div class="form-group">
                 <div class="">
-                    <input type="password" class="form-control" id="password" placeholder="密码">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="密码">
                 </div>
             </div>
             <div class="form-group">
