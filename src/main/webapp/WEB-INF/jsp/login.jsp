@@ -23,9 +23,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/login">登录</a></li>
-                <li><a href="/signup">注册</a></li>
-                <li><a href="/secured">保密资源</a></li>
+                <li class="active"><a href="/qa-monitor/login">登录</a></li>
+                <li><a href="/qa-monitor/signup">注册</a></li>
+                <li><a href="/qa-monitor/secured">保密资源</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
