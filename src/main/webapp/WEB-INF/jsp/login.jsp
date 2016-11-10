@@ -31,17 +31,28 @@
     </div>
 </nav>
 <div class="main">
-    <form action="/qa-monitor/login" method="post" >
-        <div class="form-group">
-            <label class="">用户名</label>
-            <input type="text" name="username">
+    <div class="main">
+        <div class="login-form">
+            <p class="form-title">  登 录 </p>
+            <form class="form-horizontal" action="/qa-monitor/login" method="post" >
+                <div class="form-group">
+                    <div class="">
+                        <input type="text" class="form-control" id="username" placeholder="用户名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="">
+                        <input type="password" class="form-control" id="password" placeholder="密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="">
+                        <button type="submit" class="btn btn-primary btn-block">登录</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label class="">密码</label>
-            <input type="password" name="password">
-        </div>
-        <input type="submit" class="btn btn-default " value="登陆">
-    </form>
+    </div>
 </div>
 </body>
 </html>
