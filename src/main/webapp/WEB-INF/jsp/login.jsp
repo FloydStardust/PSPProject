@@ -37,12 +37,12 @@
             <form class="form-horizontal" action="/qa-monitor/login" method="post" >
                 <div class="form-group">
                     <div class="">
-                        <input type="text" class="form-control" id="username" placeholder="用户名">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="">
-                        <input type="password" class="form-control" id="password" placeholder="密码">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="密码">
                     </div>
                 </div>
                 <div class="form-group">
