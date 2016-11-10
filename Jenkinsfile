@@ -13,7 +13,7 @@
         sh "docker stop psp || true"
         sh "docker rm psp || true"
         sh "docker run --name psp --net=host -d tomcat:8.5"
-        sh "docker cp target/qa-monitor.war psp:/usr/local/tomcat/webapps/ROOT.war"
+        sh "docker cp target/qa-monitor.war psp:/usr/local/tomcat/webapps"
     }
     stage('results') {
         archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
