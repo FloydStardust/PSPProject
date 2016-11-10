@@ -1,1 +1,7 @@
 @CHARSET "UTF-8";
+.main{
+    top:100px;
+    width:1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
