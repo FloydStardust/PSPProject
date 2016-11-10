@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="static/bootstrap-3.3.7/css/bootstrap.min.css">
-    <link href="css/wcy.css" rel="stylesheet">
+    <link href="static/css/wcy.css" rel="stylesheet">
     <title>风险管理系统·登录</title>
 </head>
 <body>
@@ -28,12 +28,14 @@
                 <li><a href="/secured">保密资源</a></li>
             </ul>
         </div><!--/.nav-collapse -->
-        <form action="/login" method="post">
-            <input type="text" name="username">
-            <input type="password" name="password">
-            <button type="submit">登录</button>
-        </form>
     </div>
 </nav>
+<div>
+    <form action="/login" method="post">
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <button type="submit">登录</button>
+    </form>
+</div>
 </body>
 </html>
