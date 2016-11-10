@@ -5,10 +5,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.security.SecureRandom;
 import java.util.List;
 
@@ -18,8 +15,10 @@ public class User {
     @Id
     @GeneratedValue
     Long id;
+    @Column(unique = true)
     String name;
     @Email
+    @Column(unique = true)
     String email;
     String passwordDigest;
 
