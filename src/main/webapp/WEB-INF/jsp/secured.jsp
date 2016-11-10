@@ -5,7 +5,7 @@
 </head>
 <body>
 <h3>You are reading critical profile!</h3>
-<form action="/logout" method="post">
+<form action="/qa-monitor/logout" method="post">
     <button type="submit">退出</button>
 </form>
 </body>
