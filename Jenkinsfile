@@ -12,7 +12,7 @@
     stage('deploy') {
         sh "docker stop psp || true"
         sh "docker rm psp || true"
-        sh "docker run --name psp -p 8888:8080 -d tomcat:8.5"
+        sh "docker run --name psp --net=host -d tomcat:8.5"
         sh "docker cp target/qa-monitor.war psp:/usr/local/tomcat/webapps"
     }
     stage('results') {
