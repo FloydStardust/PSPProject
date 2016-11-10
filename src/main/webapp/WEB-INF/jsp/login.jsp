@@ -30,7 +30,7 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-<div>
+<div class="main">
     <form action="/qa-monitor/login" method="post" >
         <div class="form-group">
             <label class="">用户名</label>
@@ -40,8 +40,7 @@
             <label class="">密码</label>
             <input type="password" name="password">
         </div>
-        <input type="submit" class="btn btn-success " value="登陆">
-        <input type="submit" class="btn btn-success " value="登陆">
+        <input type="submit" class="btn btn-default " value="登陆">
     </form>
 </div>
 </body>
