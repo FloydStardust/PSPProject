@@ -37,7 +37,7 @@
             <form class="form-horizontal" action="/qa-monitor/login" method="post" >
                 <div class="form-group">
                     <div class="">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="用户名" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
