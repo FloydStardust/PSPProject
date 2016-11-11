@@ -41,12 +41,14 @@ public class HomeController {
     }
 
     @GetMapping("/home/risk_submited")
-    String riskSubmited () {
+    String riskSubmited (@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("user", user);
         return "home/risk_submited";
     }
 
     @GetMapping("/home/risk_tracked")
-    String riskTracked () {
+    String riskTracked (@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("user", user);
         return "home/risk_tracked";
     }
 }
