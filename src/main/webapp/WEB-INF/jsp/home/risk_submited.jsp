@@ -47,8 +47,8 @@
     <h2>${user.name} 的主页</h2>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs">
-        <li role="presentation"><a href="/qa-monitor/home/projects">创建的项目</a></li>
-        <li role="presentation" class="active"><a href="javascript:;">提交的风险</a></li>
+        <li role="presentation"><a href="/qa-monitor/home/projects">我的项目</a></li>
+        <li role="presentation" class="active"><a href="javascript:;">创建的风险</a></li>
         <li role="presentation"><a href="/qa-monitor/home/risk_tracked">跟踪的风险</a></li>
     </ul>
     <!-- Tab panes -->
