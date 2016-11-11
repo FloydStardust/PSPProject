@@ -29,13 +29,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="/qa-monitor">Project name</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/qa-monitor/login">登录</a></li>
                 <li><a href="/qa-monitor/signup">注册</a></li>
+                <li><a href="/qa-monitor/home">用户主页</a></li>
             </ul>
+            <form class="navbar-form navbar-left" action="/qa-monitor/logout" method="post">
+                <button type="submit" class="btn">注销</button>
+            </form>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
