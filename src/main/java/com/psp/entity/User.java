@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.security.SecureRandom;
@@ -27,9 +28,6 @@ public class User implements UserDetails {
     @Column(unique = true)
     String email;
     String passwordDigest;
-
-    @OneToMany(mappedBy = "creator")
-    Set<Project> projectsCreated;
 
     public static User create(String name, String password, String email) {
         User user = new User();
