@@ -36,6 +36,6 @@ public class SessionController {
                         @RequestParam String email,
                         HttpServletRequest request) {
         userService.create(username, password, email);
-        return "redirect:/qa-monitor";
+        return "redirect:/";
     }
 }
