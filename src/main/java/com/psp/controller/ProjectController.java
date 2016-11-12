@@ -40,7 +40,7 @@ public class ProjectController {
     }
 
     @GetMapping("/{id:\\d+}")
-    String index(@PathVariable Long id, Model model) {
+    String show(@PathVariable Long id, Model model) {
         final Project project = projectRepository.findOne(id);
         model.addAttribute("project", project);
         final Set<Role> roles = roleRepository.findByProject(project);
