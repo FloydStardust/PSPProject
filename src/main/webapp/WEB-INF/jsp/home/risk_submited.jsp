@@ -13,7 +13,9 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/qa-monitor/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link href="/qa-monitor/static/css/wcy.css" rel="stylesheet">
     <script src="/qa-monitor/static/jquery/jquery-3.1.1.min.js"></script>
+    <script src="/qa-monitor/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/qa-monitor/static/jquery/jquery-confirm.min.css">
     <script src="/qa-monitor/static/jquery/jquery-confirm.min.js"></script>
     <title>风险管理系统·${user.name} 的主页</title>
@@ -62,6 +64,11 @@
             </tr>
             </thead>
             <tbody>
+            <tr>
+                <td>34</td>
+                <td><a href="#">超级大的风险</a></td>
+                <td><a href="#">ly1996</a></td>
+            </tr>
             </tbody>
         </table>
     </div>
