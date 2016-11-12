@@ -19,29 +19,40 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="/qa-monitor">Project name</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/login">登录</a></li>
-                <li><a href="/signup">注册</a></li>
-                <li><a href="/secured">保密资源</a></li>
+                <li class="active"><a href="/qa-monitor/login">登录</a></li>
+                <li><a href="/qa-monitor/signup">注册</a></li>
+                <li><a href="/qa-monitor/home">用户主页</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 <div class="main">
-    <form action="/qa-monitor/login" method="post" >
-        <div class="form-group">
-            <label class="">用户名</label>
-            <input type="text" name="username">
+    <div class="main">
+        <div class="login-form">
+            <p class="form-title">  登 录 </p>
+            <form class="form-horizontal" action="/qa-monitor/login" method="post" >
+                <div class="form-group">
+                    <div class="">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="用户名" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="">
+                        <button type="submit" class="btn btn-primary btn-block">登录</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label class="">密码</label>
-            <input type="password" name="password">
-        </div>
-        <input type="submit" class="btn btn-default " value="登陆">
-    </form>
+    </div>
 </div>
 </body>
 </html>
