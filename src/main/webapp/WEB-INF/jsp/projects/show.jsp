@@ -12,10 +12,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="/qa-monitor/static/bootstrap-3.3.7/css/bootstrap.min.css">
     <script src="/qa-monitor/static/jquery/jquery-3.1.1.min.js"></script>
     <script src="/qa-monitor/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script src="/qa-monitor/static/js/home.js"></script>
+    <link rel="stylesheet" href="/qa-monitor/static/jquery/jquery-confirm.min.css">
+    <script src="/qa-monitor/static/jquery/jquery-confirm.min.js"></script>
+
+    <link href="/qa-monitor/static/css/wcy.css" rel="stylesheet">
+    <link href="/qa-monitor/static/css/ly.css" rel="stylesheet">
     <title>风险管理系统·项目详情</title>
 </head>
 <body>
@@ -44,9 +49,94 @@
     </div>
 </nav>
 <main class="container">
-    <h2>${project.id}</h2>
-    <h2>${project.name}</h2>
-    <h3>${project.creator.name}</h3>
+    <div class="row title-div">
+        <div class="col-md-2 center-text">
+            <h3>项目名称</h3>
+        </div>
+        <div class="col-md-10">
+            <h3>创建者：ly1996</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="nav nav-tabs nav-stacked">
+                <li role="presentation" class="active"><a href="#home" data-toggle="tab">首页</a></li>
+                <li role="presentation"><a href="#risk" data-toggle="tab">风险</a></li>
+            </ul>
+        </div>
+        <div class="col-md-10 tab-content">
+            <div class="tab-pane fade in active row" id="home">
+                <div class="col-md-8 div-border">
+                    <h3>最新动态(top5)</h3>
+                    <div class="div-top-border">
+                        <div class="font-20">ly1996创建了<a>project-01</a>风险</div>
+                        <div class="font-18">类型：范围风险 可能性：高 影响程度：中</div>
+                        <div class="font-18">风险描述：快递费设为维护费稳定客户hi我都不玩空间非常
+                            鲍斯股份你参加考试大部分可接受的</div>
+                        <div class="font-12">2012-2-34 12:00</div>
+                    </div>
+                    <div class="div-top-border">
+                        <div class="font-20">ly1996更新了<a>project-01</a>风险</div>
+                        <div class="font-18">风险描述：快递费设为维护费稳定客户hi我都不玩空间非常
+                            鲍斯股份你参加考试大部分可接受的</div>
+                        <div class="font-18">风险状态改变</div>
+                        <div class="font-12">2012-2-34 12:00</div>
+                    </div>
+                </div>
+                <div class="col-md-4 div-border-top">
+                    <div class="member-div"><span class="font-20">项目成员</span><button
+                            class="btn btn-info float-right" data-toggle="modal" data-target="#new-project-modal">增加
+                        成员</button></div>
+                    <ul>
+                        <li>
+                            <h4>项目经理</h4>
+                            <h4>wcy</h4>
+                        </li>
+                        <li>
+                            <h4>
+                                开发人员
+                            </h4>
+                            <ul>
+                                <li>
+                                    <h4>ly</h4>
+                                </li>
+                                <li>
+                                    <h4>
+                                        ly1996
+                                    </h4>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="risk">
+                <button class="btn btn-info crt-btn" data-toggle="modal" data-target="#new-project-modal">新建风险</button>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>风险编号</th>
+                        <th>类型</th>
+                        <th>描述</th>
+                        <th>可能性</th>
+                        <th>影响程度</th>
+                        <th>已成为问题/空</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a>1</a></td>
+                        <td>范围风险</td>
+                        <td>casjhsdhkf</td>
+                        <td>高</td>
+                        <td>高</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </main>
 </body>
 </html>
