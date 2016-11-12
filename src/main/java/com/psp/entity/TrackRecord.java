@@ -1,12 +1,13 @@
 package com.psp.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import lombok.Getter;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 
 @Entity
+@Getter
 public class TrackRecord {
     @Id
     @GeneratedValue
@@ -18,4 +19,10 @@ public class TrackRecord {
 
     @ManyToOne
     Risk risk;          // 所属的风险
+
+    LocalDateTime createdAt;
+    @PrePersist
+    public void prePersist () {
+        createdAt = LocalDateTime.now();
+    }
 }

@@ -1,8 +1,12 @@
 package com.psp.entity;
 
+import lombok.Getter;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
+@Getter
 public class Risk {
     @Id
     @GeneratedValue
@@ -32,6 +36,12 @@ public class Risk {
     User creator;       // 提交者
     @ManyToOne
     User tracker;       // 跟踪者
+
+    LocalDateTime createdAt;
+    @PrePersist
+    public void prePersist () {
+        createdAt = LocalDateTime.now();
+    }
 
     static enum Probability {
         HIGH,
