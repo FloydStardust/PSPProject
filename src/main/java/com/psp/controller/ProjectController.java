@@ -1,10 +1,7 @@
 package com.psp.controller;
 
 import com.psp.entity.*;
-import com.psp.repository.ProjectRepository;
-import com.psp.repository.RiskRepository;
-import com.psp.repository.RoleRepository;
-import com.psp.repository.TrackRecordRepository;
+import com.psp.repository.*;
 import com.psp.service.ProjectService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -24,6 +21,7 @@ public class ProjectController {
     private ProjectRepository projectRepository;
     private RoleRepository roleRepository;
     private RiskRepository riskRepository;
+    private RiskTypeRepository riskTypeRepository;
     private TrackRecordRepository trackRecordRepository;
 
     @Inject
@@ -31,11 +29,13 @@ public class ProjectController {
                       ProjectRepository projectRepository,
                       RoleRepository roleRepository,
                       RiskRepository riskRepository,
+                      RiskTypeRepository riskTypeRepository,
                       TrackRecordRepository trackRecordRepository) {
         this.projectService = projectService;
         this.projectRepository = projectRepository;
         this.roleRepository = roleRepository;
         this.riskRepository = riskRepository;
+        this.riskTypeRepository = riskTypeRepository;
         this.trackRecordRepository = trackRecordRepository;
     }
 
@@ -47,6 +47,7 @@ public class ProjectController {
         model.addAttribute("roles", roles);
         final Set<Risk> risks = riskRepository.findByProject(project);
         model.addAttribute("risks", risks);
+        model.addAttribute("riskTypes", riskTypeRepository.findAll());
         final Set<TrackRecord> trackRecords = trackRecordRepository.findTop5ByRiskProjectOrderByCreatedAt(project);
         model.addAttribute("top5TrackRecords", trackRecords);
         return "projects/show";

@@ -2,6 +2,7 @@ package com.psp.entity;
 
 import lombok.Getter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ public class RiskType {
     @Id
     @GeneratedValue
     Long id;
+    @Column(unique = true)
     String name;
 
     public static RiskType build(String name) {
