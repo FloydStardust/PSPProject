@@ -12,6 +12,4 @@ import java.util.Set;
 public interface UserService {
     User create(String username, String password, String email);
     User createIfNotExists(String username, String password, String email);
-    @Transactional
-    Set<Project> getProjectCreated(User user);
 }
