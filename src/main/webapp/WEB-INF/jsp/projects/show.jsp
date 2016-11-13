@@ -125,8 +125,9 @@
                                     <div class="form-group">
                                         <label for="member-select">成员选择</label>
                                         <select id="member-select">
-                                            <option value="1">wcy1995</option>
-                                            <option value="2">ly1996</option>
+                                            <c:forEach items="${users}" var="user">
+                                                <option value=${user.id}>${user.name}</option>
+                                            </c:forEach>
                                         </select>
                                         <label for="identity-select">身份选择</label>
                                         <select id="identity-select">
