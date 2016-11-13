@@ -11,4 +11,9 @@ public class RoleType {
     @GeneratedValue
     Long id;
     String name;
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

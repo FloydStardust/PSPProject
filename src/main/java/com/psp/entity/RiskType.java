@@ -19,4 +19,9 @@ public class RiskType {
         type.name = name;
         return type;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
