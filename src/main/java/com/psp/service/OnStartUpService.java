@@ -15,11 +15,14 @@ import javax.inject.Inject;
 public class OnStartUpService implements ApplicationListener<ApplicationReadyEvent> {
     private Environment env;
     private UserService userService;
+    private RiskTypeService riskTypeService;
 
     @Inject
     OnStartUpService(UserService userService,
+                     RiskTypeService riskTypeService,
                      Environment env) {
         this.userService = userService;
+        this.riskTypeService = riskTypeService;
         this.env = env;
     }
 
@@ -30,5 +33,7 @@ public class OnStartUpService implements ApplicationListener<ApplicationReadyEve
         userService.createIfNotExists("user", "pass", "user@mail.com");
         final User creator = userService.createIfNotExists("creator", "creator", "creator@mail.com");
         final User tracker = userService.createIfNotExists("tracker", "tracker", "tracker@mail.com");
+
+        riskTypeService.setupRiskTypes();
     }
 }
