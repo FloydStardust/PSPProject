@@ -166,6 +166,7 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${risks}" var="risk">
+                        <tr>
                             <td><a>${risk.id}</a></td>
                             <td>${risk.type.toString()}</td>
                             <td>${risk.description}</td>
