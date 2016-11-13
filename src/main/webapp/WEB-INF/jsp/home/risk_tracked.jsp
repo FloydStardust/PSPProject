@@ -68,18 +68,68 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><a>project</a></td>
-                <td><a>project-34</a></td>
-                <td>管理风险</td>
-                <td>房产北京受到惩罚加快速度高哦啊接受到上帝啊</td>
-                <td><span class="label label-danger">高</span></td>
-                <td><span class="label label-warning">中</span></td>
-                <td>风险</td>
-                <td>
-                    <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#follow-risk-modal">风险跟踪</button>
-                </td>
-            </tr>
+            <c:forEach items="${risks}" var="risk">
+                <tr>
+                    <td><a href="/qa-monitor/projects/${risk.project.id}">${risk.project.name}</a> </td>
+                    <td><a href="/qa-monitor/projects/${risk.project.id}/risks/${risk.id}">${risk.project.name}-${risk.id}</a></td>
+                    <td>${risk.type.name}</td>
+                    <td>${risk.description}</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${risk.probability==Probability.HIGH}">
+                                <span class="label label-danger">高</span>
+                            </c:when>
+                            <c:when test="${risk.probability==Probability.MEDIUM}">
+                                <span class="label label-warning">中</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="label label-info">低</span>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${risk.impact==Impact.HIGH}">
+                                <span class="label label-danger">高</span>
+                            </c:when>
+                            <c:when test="${risk.impact==Impact.MEDIUM}">
+                                <span class="label label-warning">中</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="label label-info">低</span>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${risk.happened==true}">
+                                问题
+                            </c:when>
+                            <c:otherwise>
+                                风险
+                            </c:otherwise>
+                        </c:choose>
+                        &nbsp;&nbsp;
+                        <c:choose>
+                            <c:when test="${risk.closed==true}">
+                                <span class="label label-default">已关闭</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="label label-success">开放中</span>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${risk.closed==false}">
+                                <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#follow-risk-modal">风险跟踪</button>
+                            </c:when>
+                            <c:otherwise>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>
@@ -99,10 +149,10 @@
                             <input type="text" name="name" id="risk-description" class="form-control" >
                             <br>
                             <label for="change-orNot">是否成为问题</label>
-                            <select id="change-orNot">
-                                <option value="1" >是</option>
-                                <option value="0" selected>否</option>
-                            </select>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="optionsRadiosinline" id="optionsRadios1" value="0" checked>否
+                                <input type="radio" name="optionsRadiosinline" id="optionsRadios2" value="1">是
+                            </label>
                         </div>
                     </form>
                 </div>

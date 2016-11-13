@@ -64,19 +64,63 @@
                 <th>描述</th>
                 <th>可能性</th>
                 <th>影响程度</th>
-                <th>风险标识</th>
+                <th>状态</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><a>project</a></td>
-                <td><a>project-34</a></td>
-                <td>管理风险</td>
-                <td>房产北京受到惩罚加快速度高哦啊接受到上帝啊</td>
-                <td><span class="label label-warning">中</span></td>
-                <td><span class="label label-warning">中</span></td>
-                <td>风险</td>
-            </tr>
+            <c:forEach items="${risks}" var="risk">
+                <tr>
+                    <td><a href="/qa-monitor/projects/${risk.project.id}">${risk.project.name}</a> </td>
+                    <td><a href="/qa-monitor/projects/${risk.project.id}/risks/${risk.id}">${risk.project.name}-${risk.id}</a></td>
+                    <td>${risk.type.name}</td>
+                    <td>${risk.description}</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${risk.probability==Probability.HIGH}">
+                                <span class="label label-danger">高</span>
+                            </c:when>
+                            <c:when test="${risk.probability==Probability.MEDIUM}">
+                                <span class="label label-warning">中</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="label label-info">低</span>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${risk.impact==Impact.HIGH}">
+                                <span class="label label-danger">高</span>
+                            </c:when>
+                            <c:when test="${risk.impact==Impact.MEDIUM}">
+                                <span class="label label-warning">中</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="label label-info">低</span>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${risk.happened==true}">
+                                问题
+                            </c:when>
+                            <c:otherwise>
+                                风险
+                            </c:otherwise>
+                        </c:choose>
+                        &nbsp;&nbsp;
+                        <c:choose>
+                            <c:when test="${risk.closed==true}">
+                                <span class="label label-default">已关闭</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="label label-success">开放中</span>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>
