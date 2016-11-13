@@ -67,6 +67,6 @@ public class RiskController {
                   @AuthenticationPrincipal User creator,
                   @RequestParam Long trackerId) {
         riskService.create(projectId, probability, impact, threshold, action, riskTypeId, creator, trackerId, description);
-        return "redirect:/projects" + projectId;
+        return "redirect:/projects/" + projectId;
     }
 }
