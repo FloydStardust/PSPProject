@@ -6,6 +6,8 @@ import com.psp.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 /**
  * Created by jankin on 11/11/2016.
  */
@@ -19,5 +21,10 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project create(String name, User user) {
         return projectRepository.save(Project.create(name, user));
+    }
+
+    @Override
+    public Set<Project> getProjectsCreatedBy(User user) {
+        return projectRepository.findByCreator(user);
     }
 }

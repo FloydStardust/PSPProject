@@ -11,6 +11,7 @@ import com.psp.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.util.Set;
 
 /**
  * Created by jankin on 12/11/2016.
@@ -41,5 +42,15 @@ public class RiskServiceImpl implements RiskService {
         final Risk risk = Risk.build(description, Risk.Probability.valueOf(probability),
                 Risk.Impact.valueOf(impact), threshold , action, project, riskType, creator, tracker);
         return riskRepository.save(risk);
+    }
+
+    @Override
+    public Set<Risk> getRisksCreatedBy(User user) {
+        return riskRepository.findByCreator(user);
+    }
+
+    @Override
+    public Set<Risk> getRisksTrackedBy(User tracker) {
+        return riskRepository.findByTracker(tracker);
     }
 }
