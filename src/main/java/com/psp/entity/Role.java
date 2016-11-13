@@ -21,5 +21,13 @@ public class Role {
     User user;
 
     @ManyToOne
-    RoleType roleType;
+    RoleType type;
+
+    public static Role build(Project project, User user, RoleType type) {
+        final Role role = new Role();
+        role.project = project;
+        role.user = user;
+        role.type = type;
+        return role;
+    }
 }
