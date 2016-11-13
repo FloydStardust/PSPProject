@@ -136,10 +136,9 @@
                                         </select>
                                         <label for="identity-select">身份选择</label>
                                         <select id="identity-select">
-                                            <option value="1">项目经理</option>
-                                            <option value="2">工程师</option>
-                                            <option value="3">开发经理</option>
-                                            <option value="4">支持经理</option>
+                                            <c:forEach items="${roleTypes}" var="roleType">
+                                                <option value=${roleType.toString()}>${roleType.toString()}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </form>
@@ -169,7 +168,7 @@
                     <c:forEach items="${risks}" var="risk">
                         <tr>
                             <td><a>${risk.id}</a></td>
-                            <td>${risk.type.name}</td>
+                            <td>${risk.type.toString()}</td>
                             <td>${risk.description}</td>
                             <td>${risk.probability}</td>
                             <td>${risk.impact}</td>
