@@ -77,10 +77,10 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                         影响程度 :
                         <c:choose>
-                            <c:when test="${risk.probability==Probability.HIGH}">
+                            <c:when test="${risk.impact==Impact.HIGH}">
                                 <span class="label label-danger">高</span>
                             </c:when>
-                            <c:when test="${risk.probability==Probability.MEDIUM}">
+                            <c:when test="${risk.impact==Impact.MEDIUM}">
                                 <span class="label label-warning">中</span>
                             </c:when>
                             <c:otherwise>
