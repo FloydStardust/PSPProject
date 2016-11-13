@@ -61,7 +61,7 @@
                 </div>
                 <div>
                     <div class="font-16 ft-fml">
-                        类型 : ${risk.type.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        类型 : ${risk.type.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                         可能性 :
                         <c:choose>
                             <c:when test="${risk.probability==Probability.HIGH}">
@@ -74,7 +74,7 @@
                                 <span class="label label-info">低</span>
                             </c:otherwise>
                         </c:choose>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                         影响程度 :
                         <c:choose>
                             <c:when test="${risk.probability==Probability.HIGH}">
@@ -85,6 +85,25 @@
                             </c:when>
                             <c:otherwise>
                                 <span class="label label-info">低</span>
+                            </c:otherwise>
+                        </c:choose>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                        状态 :
+                        <c:choose>
+                            <c:when test="${risk.happened==true}">
+                                问题
+                            </c:when>
+                            <c:otherwise>
+                                风险
+                            </c:otherwise>
+                        </c:choose>
+                        &nbsp;&nbsp;
+                        <c:choose>
+                            <c:when test="${risk.closed==true}">
+                                <span class="label label-default">已关闭</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="label label-success">开放中</span>
                             </c:otherwise>
                         </c:choose>
                     </div>
