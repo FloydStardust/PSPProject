@@ -166,16 +166,51 @@
                             <td><a href="/qa-monitor/projects/${project.id}/risks/${risk.id}">${risk.id}</a></td>
                             <td>${risk.type.toString()}</td>
                             <td>${risk.description}</td>
-                            <td>${risk.probability}</td>
-                            <td>${risk.impact}</td>
-                            <c:choose>
-                                <c:when test = "${risk.happened == false}">
-                                    <td>风险</td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td>问题</td>
-                                </c:otherwise>
-                            </c:choose>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${risk.probability=='HIGH'}">
+                                        <span class="label label-danger">高</span>
+                                    </c:when>
+                                    <c:when test="${risk.probability=='MEDIUM'}">
+                                        <span class="label label-warning">中</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-info">低</span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${risk.impact=='HIGH'}">
+                                        <span class="label label-danger">高</span>
+                                    </c:when>
+                                    <c:when test="${risk.impact=='MEDIUM'}">
+                                        <span class="label label-warning">中</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-info">低</span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${risk.happened==true}">
+                                        问题
+                                    </c:when>
+                                    <c:otherwise>
+                                        风险
+                                    </c:otherwise>
+                                </c:choose>
+                                &nbsp;&nbsp;
+                                <c:choose>
+                                    <c:when test="${risk.closed==true}">
+                                        <span class="label label-default">已关闭</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-success">开放中</span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>

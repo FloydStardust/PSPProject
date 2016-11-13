@@ -63,7 +63,7 @@
                 <th>描述</th>
                 <th>可能性</th>
                 <th>影响程度</th>
-                <th>风险标识</th>
+                <th>状态</th>
                 <th>操作</th>
             </tr>
             </thead>
