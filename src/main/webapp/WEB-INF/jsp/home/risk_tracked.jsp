@@ -83,7 +83,7 @@
             </tbody>
         </table>
     </div>
-    <%-- 新建项目 --%>
+    <%-- 风险跟踪--%>
     <div class="modal fade" tabindex="-1" role="dialog" id="follow-risk-modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -97,7 +97,7 @@
                         <div class="form-group">
                             <label for="risk-description">风险描述</label>
                             <input type="text" name="name" id="risk-description" class="form-control" placeholder="...">
-                            <label for="change-orNot">风险描述</label>
+                            <label for="change-orNot">状态是否变化</label>
                             <select id="change-orNot">
                                 <option value="1">是</option>
                                 <option value="0">否</option>

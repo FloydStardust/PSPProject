@@ -99,7 +99,7 @@
                 </div>
                 <div class="col-md-4 div-border-top">
                     <div class="member-div"><span class="font-20 ft-fml">项目成员</span><button
-                            class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#new-project-modal">添加成员</button></div>
+                            class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#add-member-modal">添加成员</button></div>
                     <ul>
                         <li>
                             <h4>项目经理</h4>
@@ -115,6 +115,40 @@
                         </li>
                     </ul>
                 </div>
+                <%-- 添加成员 --%>
+                <div class="modal fade" tabindex="-1" role="dialog" id="add-member-modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">添加成员</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" method="post" id="add-member-form">
+                                    <div class="form-group">
+                                        <label for="member-select">成员选择</label>
+                                        <select id="member-select">
+                                            <option value="1">wcy1995</option>
+                                            <option value="2">ly1996</option>
+                                        </select>
+                                        <label for="identity-select">身份选择</label>
+                                        <select id="identity-select">
+                                            <option value="1">项目经理</option>
+                                            <option value="2">工程师</option>
+                                            <option value="3">开发经理</option>
+                                            <option value="4">支持经理</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="submit" class="btn btn-primary" form="add-member-form">增加</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
             </div>
             <div class="tab-pane fade" id="risk">
                 <button class="btn btn-info crt-btn" data-toggle="modal" data-target="#new-project-modal">新建风险</button>
