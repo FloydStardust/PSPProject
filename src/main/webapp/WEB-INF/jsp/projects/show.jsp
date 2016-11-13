@@ -97,18 +97,19 @@
                     <div class="member-div"><span class="font-20 ft-fml">项目成员</span><button
                             class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#add-member-modal">添加成员</button></div>
                     <ul>
-                        <li>
-                            <h4>项目经理</h4>
-                            <h5>wcy<button class="btn btn-xs btn-link float-right">移除</button></h5>
-                        </li>
-                        <li>
-                            <h4>
-                                开发人员
-                            </h4>
-                            <h5>karry<button class="btn btn-xs btn-link float-right">移除</button></h5>
-                            <h5>roy<button class="btn btn-xs btn-link float-right">移除</button></h5>
-
-                        </li>
+                        <c:forEach items="${roleTypes}" var="type">
+                            <li>
+                                <h4>${type.toString()}</h4>
+                                <c:forEach items="${roles}" var="role">
+                                    <c:choose>
+                                        <c:when test = "${role.type.toString().equals(type.toString())}">
+                                            <h5>${role.user.name}<button class="btn btn-xs btn-link float-right">移除</button></h5>
+                                        </c:when>
+                                        <c:otherwise></c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </div>
                 <%-- 添加成员 --%>
