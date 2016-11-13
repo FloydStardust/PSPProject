@@ -145,7 +145,7 @@
                 <div class="modal-body">
                     <form action="" method="post" id="follow-risk-form">
                         <div class="form-group">
-                            <label for="risk-description">风险描述</label>
+                            <label for="risk-description">状态</label>
                             <input type="text" name="name" id="risk-description" class="form-control" >
                             <br>
                             <label for="change-orNot">是否成为问题</label>
