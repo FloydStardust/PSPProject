@@ -13,14 +13,14 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="static/bootstrap-3.3.7/css/bootstrap.min.css">
-    <script src="static/jquery/jquery-3.1.1.min.js"></script>
-    <script src="static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="static/jquery/jquery-confirm.min.css">
-    <script src="static/jquery/jquery-confirm.min.js"></script>
+    <link rel="stylesheet" href="/qa-monitor/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="/qa-monitor/static/jquery/jquery-3.1.1.min.js"></script>
+    <script src="/qa-monitor/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/qa-monitor/static/jquery/jquery-confirm.min.css">
+    <script src="/qa-monitor/static/jquery/jquery-confirm.min.js"></script>
 
-    <link href="static/css/wcy.css" rel="stylesheet">
-    <link href="static/css/ly.css" rel="stylesheet">
+    <link href="/qa-monitor/static/css/wcy.css" rel="stylesheet">
+    <link href="/qa-monitor/static/css/ly.css" rel="stylesheet">
     <title>风险管理系统·项目详情</title>
 </head>
 <body>
