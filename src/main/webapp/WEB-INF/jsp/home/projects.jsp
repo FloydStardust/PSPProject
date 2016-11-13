@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,12 +42,12 @@
             </ul>
             <form class="navbar-form navbar-left" action="/qa-monitor/logout" method="post">
                 <button type="submit" class="btn">注销</button>
-            </form>ws
+            </form>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 <main class="container">
-    <h2>${user.name} 的主页</h2>
+    <h2><sec:authentication property="name"/> 的主页</h2>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs">
         <li role="presentation" class="active"><a href="javascript:;">我的项目</a></li>
