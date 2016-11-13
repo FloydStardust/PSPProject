@@ -16,13 +16,16 @@ public class OnStartUpService implements ApplicationListener<ApplicationReadyEve
     private Environment env;
     private UserService userService;
     private RiskTypeService riskTypeService;
+    private RoleTypeService roleTypeService;
 
     @Inject
     OnStartUpService(UserService userService,
                      RiskTypeService riskTypeService,
+                     RoleTypeService roleTypeService,
                      Environment env) {
         this.userService = userService;
         this.riskTypeService = riskTypeService;
+        this.roleTypeService = roleTypeService;
         this.env = env;
     }
 
@@ -35,5 +38,6 @@ public class OnStartUpService implements ApplicationListener<ApplicationReadyEve
         final User tracker = userService.createIfNotExists("tracker", "tracker", "tracker@mail.com");
 
         riskTypeService.setupRiskTypes();
+        roleTypeService.setupRoleTypes();
     }
 }
