@@ -21,6 +21,7 @@ public class ProjectController {
     private ProjectRepository projectRepository;
     private RoleRepository roleRepository;
     private RoleTypeRepository roleTypeRepository;
+    private UserRepository userRepository;
     private RiskRepository riskRepository;
     private RiskTypeRepository riskTypeRepository;
     private TrackRecordRepository trackRecordRepository;
@@ -30,6 +31,7 @@ public class ProjectController {
                       ProjectRepository projectRepository,
                       RoleRepository roleRepository,
                       RoleTypeRepository roleTypeRepository,
+                      UserRepository userRepository,
                       RiskRepository riskRepository,
                       RiskTypeRepository riskTypeRepository,
                       TrackRecordRepository trackRecordRepository) {
@@ -37,6 +39,7 @@ public class ProjectController {
         this.projectRepository = projectRepository;
         this.roleRepository = roleRepository;
         this.roleTypeRepository = roleTypeRepository;
+        this.userRepository = userRepository;
         this.riskRepository = riskRepository;
         this.riskTypeRepository = riskTypeRepository;
         this.trackRecordRepository = trackRecordRepository;
@@ -49,6 +52,7 @@ public class ProjectController {
         final Set<Role> roles = roleRepository.findByProject(project);
         model.addAttribute("roles", roles);
         model.addAttribute("roleTypes", roleTypeRepository.findAll());
+        model.addAttribute("users", userRepository.findAll());
         final Set<Risk> risks = riskRepository.findByProject(project);
         model.addAttribute("risks", risks);
         model.addAttribute("riskTypes", riskTypeRepository.findAll());
