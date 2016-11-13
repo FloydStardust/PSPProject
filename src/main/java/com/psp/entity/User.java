@@ -29,7 +29,7 @@ public class User implements UserDetails {
     String email;
     String passwordDigest;
 
-    public static User create(String name, String password, String email) {
+    public static User build(String name, String password, String email) {
         User user = new User();
         user.name = name;
         user.passwordDigest = new BCryptPasswordEncoder(11).encode(password);

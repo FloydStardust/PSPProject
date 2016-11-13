@@ -14,4 +14,6 @@ import java.util.Optional;
 public interface UserRepository extends CrudRepository<User, Long> {
     @Query("select u from User u where u.name = ?1 or u.email = ?1")
     Optional<User> findByNameOrEmail(String token);
+
+    Optional<User> findByName(String name);
 }

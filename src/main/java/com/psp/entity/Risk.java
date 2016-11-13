@@ -43,15 +43,39 @@ public class Risk {
         createdAt = LocalDateTime.now();
     }
 
-    static enum Probability {
+    public static enum Probability {
         HIGH,
         MEDIUM,
         LOW,
     }
 
-    static enum Impact {
+    public static enum Impact {
         HIGH,
         MEDIUM,
         LOW,
+    }
+
+    public static Risk build(String description,
+                             Probability probability,
+                             Impact impact,
+                             String threshold,
+                             String action,
+                             Project project,
+                             RiskType type,
+                             User creator,
+                             User tracker) {
+        Risk risk = new Risk();
+        risk.description = description;
+        risk.probability = probability;
+        risk.impact = impact;
+        risk.threshold = threshold;
+        risk.action = action;
+        risk.happened = false;
+        risk.closed = false;
+        risk.project = project;
+        risk.type = type;
+        risk.creator = creator;
+        risk.tracker = tracker;
+        return risk;
     }
 }
