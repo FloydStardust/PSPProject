@@ -56,15 +56,61 @@
         <table class="table">
             <thead>
             <tr>
-                <th>#</th>
-                <th>风险名称</th>
-                <th>所属项目</th>
+                <th>项目名</th>
+                <th>风险编号</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>可能性</th>
+                <th>影响程度</th>
+                <th>风险标识</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody>
+            <tr>
+                <td><a>project</a></td>
+                <td><a>project-34</a></td>
+                <td>管理风险</td>
+                <td>房产北京受到惩罚加快速度高哦啊接受到上帝啊</td>
+                <td>高</td>
+                <td>高</td>
+                <td>风险</td>
+                <td>
+                    <button class="btn btn-info" data-toggle="modal" data-target="#follow-risk-modal">风险跟踪</button>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
+    <%-- 新建项目 --%>
+    <div class="modal fade" tabindex="-1" role="dialog" id="follow-risk-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">风险跟踪</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post" id="follow-risk-form">
+                        <div class="form-group">
+                            <label for="risk-description">风险描述</label>
+                            <input type="text" name="name" id="risk-description" class="form-control" placeholder="...">
+                            <label for="change-orNot">风险描述</label>
+                            <select id="change-orNot">
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary" form="follow-risk-form">增加</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 </main>
 </body>
 </html>

@@ -58,16 +58,24 @@
         <table class="table">
             <thead>
             <tr>
+                <th>项目名</th>
                 <th>#</th>
-                <th>风险名称</th>
-                <th>所属项目</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>可能性</th>
+                <th>影响程度</th>
+                <th>风险标识</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>34</td>
-                <td><a href="#">超级大的风险</a></td>
-                <td><a href="#">ly1996</a></td>
+                <td><a>project</a></td>
+                <td><a>project-34</a></td>
+                <td>管理风险</td>
+                <td>房产北京受到惩罚加快速度高哦啊接受到上帝啊</td>
+                <td>高</td>
+                <td>高</td>
+                <td>风险</td>
             </tr>
             </tbody>
         </table>
