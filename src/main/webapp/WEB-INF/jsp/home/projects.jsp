@@ -72,7 +72,7 @@
                     <td><a href="/qa-monitor/projects/${project.id}">${project.name}</a></td>
                     <td>${project.creator.name}</td>
                     <td>
-                        <button class="btn btn-danger btn-sm btn-delete" data-delete="${project.id}">删除</button>
+                        <button class="btn btn-danger btn-xs btn-delete" data-delete="${project.id}">删除</button>
                     </td>
                 </tr>
             </c:forEach>

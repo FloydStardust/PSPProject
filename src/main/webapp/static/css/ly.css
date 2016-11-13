@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+.title-div{
+    background-color: lightgrey;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.center-text{
+    text-align: center;
+}
+
+.div-border{
+    border-color: lightgrey;
+    border-right-style:solid;
+    border-left-style:solid;
+}
+
+.div-border-top{
+    border-color: lightgrey;
+    border-top-style: solid;
+}
+
+.div-top-border
+{
+    border-top:1px solid lightgrey
+}
+
+.font-20{
+    font-size: 20px;
+}
+
+.font-18{
+    font-size: 18px;
+}
+
+.font-12{
+    font-size: 14px;
+}
+
+a{
+    cursor: pointer;
+}
+.float-right{
+    float: right;
+}
+.member-div{
+    height:40px;
+    line-height: 40px;
+    overflow: hidden;
+    margin-top: 5px;
+}

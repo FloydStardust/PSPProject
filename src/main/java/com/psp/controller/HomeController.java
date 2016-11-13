@@ -1,16 +1,16 @@
 package com.psp.controller;
 
 import com.psp.entity.Project;
+import com.psp.entity.Risk;
 import com.psp.entity.User;
-import com.psp.service.UserService;
+import com.psp.service.ProjectService;
+import com.psp.service.RiskService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.Arrays;
-import java.util.Collections;
+import javax.inject.Inject;
 import java.util.Set;
 
 /**
@@ -22,9 +22,14 @@ import java.util.Set;
  */
 @Controller
 public class HomeController {
-    private UserService userService;
-    HomeController(UserService userService) {
-        this.userService = userService;
+    private ProjectService projectService;
+    private RiskService riskService;
+
+    @Inject
+    HomeController(ProjectService projectService,
+                   RiskService riskService) {
+        this.projectService = projectService;
+        this.riskService = riskService;
     }
 
     @GetMapping("/home")
@@ -35,20 +40,24 @@ public class HomeController {
     @GetMapping("/home/projects")
     String projects(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user", user);
-        final Set<Project> projectCreated = userService.getProjectCreated(user);
+        final Set<Project> projectCreated = projectService.getProjectsCreatedBy(user);
         model.addAttribute("projects", projectCreated);
         return "home/projects";
     }
 
     @GetMapping("/home/risk_submited")
-    String riskSubmited (@AuthenticationPrincipal User user, Model model) {
+    String riskSubmited(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user", user);
+        final Set<Risk> risksCreated = riskService.getRisksCreatedBy(user);
+        model.addAttribute("risks", risksCreated);
         return "home/risk_submited";
     }
 
     @GetMapping("/home/risk_tracked")
-    String riskTracked (@AuthenticationPrincipal User user, Model model) {
+    String riskTracked(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user", user);
+        final Set<Risk> risksTracked = riskService.getRisksTrackedBy(user);
+        model.addAttribute("risks", risksTracked);
         return "home/risk_tracked";
     }
 }
