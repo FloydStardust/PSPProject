@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.psp.entity.RoleType" %>
+<%@ page import="java.util.Optional" %>
+<%@ page import="com.psp.entity.RiskType" %><%--
   Created by IntelliJ IDEA.
   User: jankin
   Date: 11/11/2016
@@ -164,22 +166,28 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><a>风险管理系统-1</a></td>
-                        <td>范围风险</td>
-                        <td>casjhsdhkf</td>
-                        <td>高</td>
-                        <td>高</td>
-                        <td>风险</td>
-                    </tr>
-                    <tr>
-                        <td><a>风险管理系统-2</a></td>
-                        <td>范围风险</td>
-                        <td>casjhsdhkf</td>
-                        <td>高</td>
-                        <td>高</td>
-                        <td>问题</td>
-                    </tr>
+                    <c:forEach items="${risks}" var="risk">
+                        <tr>
+                            <td><a>${risk.id}</a></td>
+                            <td>${risk.type.name}</td>
+                            <td>${risk.description}</td>
+                            <td>${risk.probability}</td>
+                            <td>${risk.impact}</td>
+                            <%
+                                if(risk.happened)
+                                {
+                            %>
+                            <td>风险</td>
+                            <%
+                                }else
+                                {
+                            %>
+                            <td>问题</td>
+                            <%
+                                }
+                            %>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -196,39 +204,41 @@
                             <form action="" method="post" id="create-risk-form">
                                 <div class="form-group">
                                     <label for="risk-type">风险类型</label>
-                                    <select id = "risk-type">
-                                        <option value = "1">配置风险</option>
-                                        <option value = "2">不知道什么风险</option>
+                                    <select id = "risk-type" name = "riskTypeId">
+                                        <c:forEach items="${riskTypes}" var="type">
+                                            <option value=${type.toString()}>${type.toString()}</option>
+                                        </c:forEach>
                                     </select>
                                     <br/>
                                     <label for="risk-description">风险描述</label>
-                                    <input type="text" name="name" id="risk-description" class="form-control" placeholder="...">
+                                    <input type="text" name="description" id="risk-description" class="form-control" placeholder="...">
                                     <br/>
                                     <label for="follower">跟踪者</label>
-                                    <select id = "follower">
-                                        <option value = "1">ly1996</option>
-                                        <option value = "2">wcy1995</option>
+                                    <select id = "follower" name = "trackerId">
+                                        <c:forEach items="${roles}" var="role">
+                                            <option value=${role.user.name}>${role.user.name}</option>
+                                        </c:forEach>
                                     </select>
                                     <br/>
                                     <label for="possibility">可能性</label>
-                                    <select id = "possibility">
-                                        <option value = "1">低</option>
-                                        <option value = "2">中</option>
-                                        <option value="3">高</option>
+                                    <select id = "possibility" name = "probability">
+                                        <option value = "LOW">低</option>
+                                        <option value = "MEDIUM">中</option>
+                                        <option value="HIGH">高</option>
                                     </select>
                                     <br/>
                                     <label for="affect">影响程度</label>
-                                    <select id = "affect">
-                                        <option value = "1">低</option>
-                                        <option value = "2">中</option>
-                                        <option value="3">高</option>
+                                    <select id = "affect" name = "impact">
+                                        <option value = "LOW">低</option>
+                                        <option value = "MEDIUM">中</option>
+                                        <option value="HIGH">高</option>
                                     </select>
                                     <br/>
                                     <label for="risk-trigger">触发器</label>
-                                    <input type="text" name="name" id="risk-trigger" class="form-control" placeholder="...">
+                                    <input type="text" name="threshold" id="risk-trigger" class="form-control" placeholder="...">
                                     <br/>
                                     <label for="risk-measure">风险应对措施</label>
-                                    <input type="text" name="name" id="risk-measure" class="form-control" placeholder="...">
+                                    <input type="text" name="action" id="risk-measure" class="form-control" placeholder="...">
                                 </div>
                             </form>
                         </div>
