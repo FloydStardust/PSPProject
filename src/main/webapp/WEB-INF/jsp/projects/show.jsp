@@ -102,7 +102,7 @@
                                 <h4>${type.toString()}</h4>
                                 <c:forEach items="${roles}" var="role">
                                     <c:choose>
-                                        <c:when test = "${role.type.toString().equals(type.toString())}">
+                                        <c:when test = "${role.roleType.toString().equals(type.toString())}">
                                             <h5>${role.user.name}<button class="btn btn-xs btn-link float-right">移除</button></h5>
                                         </c:when>
                                         <c:otherwise></c:otherwise>
