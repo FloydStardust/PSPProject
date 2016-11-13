@@ -191,24 +191,10 @@
                             <h4 class="modal-title">风险创建</h4>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="post" id="create-risk-form">
+                            <form action="/qa-monitor/projects/${project.id}/risks" method="post" id="create-risk-form">
                                 <div class="form-group">
-                                    <label for="risk-type">风险类型</label>
-                                    <select id = "risk-type" name = "riskTypeId">
-                                        <c:forEach items="${riskTypes}" var="type">
-                                            <option value=${type.toString()}>${type.toString()}</option>
-                                        </c:forEach>
-                                    </select>
-                                    <br/>
                                     <label for="risk-description">风险描述</label>
                                     <input type="text" name="description" id="risk-description" class="form-control" placeholder="...">
-                                    <br/>
-                                    <label for="follower">跟踪者</label>
-                                    <select id = "follower" name = "trackerId">
-                                        <c:forEach items="${roles}" var="role">
-                                            <option value=${role.user.name}>${role.user.name}</option>
-                                        </c:forEach>
-                                    </select>
                                     <br/>
                                     <label for="possibility">可能性</label>
                                     <select id = "possibility" name = "probability">
@@ -229,6 +215,20 @@
                                     <br/>
                                     <label for="risk-measure">风险应对措施</label>
                                     <input type="text" name="action" id="risk-measure" class="form-control" placeholder="...">
+                                    <br/>
+                                    <label for="risk-type">风险类型</label>
+                                    <select id = "risk-type" name = "riskTypeId">
+                                        <c:forEach items="${riskTypes}" var="riskTypeId">
+                                            <option value=${type.id}>${type.toString()}</option>
+                                        </c:forEach>
+                                    </select>
+                                    <br/>
+                                    <label for="follower">跟踪者</label>
+                                    <select id = "follower" name = "trackerId">
+                                        <c:forEach items="${roles}" var="role">
+                                            <option value=${role.user.id}>${role.user.name}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </form>
                         </div>
