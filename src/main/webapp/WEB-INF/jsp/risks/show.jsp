@@ -75,7 +75,7 @@
                             </c:otherwise>
                         </c:choose>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                        影响程度 :${risk.impact==Impact.HIGH}
+                        影响程度 :${risk.impact}
                         <c:choose>
                             <c:when test="${risk.impact==Impact.HIGH}">
                                 <span class="label label-danger">高</span>
