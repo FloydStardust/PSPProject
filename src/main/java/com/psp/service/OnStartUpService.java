@@ -1,5 +1,6 @@
 package com.psp.service;
 
+import com.psp.entity.Project;
 import com.psp.entity.User;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -17,15 +18,18 @@ public class OnStartUpService implements ApplicationListener<ApplicationReadyEve
     private UserService userService;
     private RiskTypeService riskTypeService;
     private RoleTypeService roleTypeService;
+    private ProjectService projectService;
 
     @Inject
     OnStartUpService(UserService userService,
                      RiskTypeService riskTypeService,
                      RoleTypeService roleTypeService,
+                     ProjectService projectService,
                      Environment env) {
         this.userService = userService;
         this.riskTypeService = riskTypeService;
         this.roleTypeService = roleTypeService;
+        this.projectService = projectService;
         this.env = env;
     }
 
@@ -39,5 +43,7 @@ public class OnStartUpService implements ApplicationListener<ApplicationReadyEve
 
         riskTypeService.setupRiskTypes();
         roleTypeService.setupRoleTypes();
+
+        projectService.create("测试项目", creator);
     }
 }
