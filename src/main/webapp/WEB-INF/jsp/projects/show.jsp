@@ -219,7 +219,7 @@
                                     <label for="risk-type">风险类型</label>
                                     <select id = "risk-type" name = "riskTypeId">
                                         <c:forEach items="${riskTypes}" var="riskTypeId">
-                                            <option value=${type.id}>${riskTypeId.toString()}</option>
+                                            <option value=${riskTypeId.id}>${riskTypeId.toString()}</option>
                                         </c:forEach>
                                     </select>
                                     <br/>
