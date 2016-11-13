@@ -2,7 +2,7 @@ package com.psp.controller;
 
 import com.psp.entity.Project;
 import com.psp.entity.User;
-import com.psp.service.UserService;
+import com.psp.service.ProjectService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,11 +20,11 @@ import java.util.Set;
  */
 @Controller
 public class HomeController {
-    private UserService userService;
+    private ProjectService projectService;
 
     @Inject
-    HomeController(UserService userService) {
-        this.userService = userService;
+    HomeController(ProjectService projectService) {
+        this.projectService = projectService;
     }
 
     @GetMapping("/home")
@@ -35,7 +35,7 @@ public class HomeController {
     @GetMapping("/home/projects")
     String projects(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user", user);
-        final Set<Project> projectCreated = userService.getProjectCreated(user);
+        final Set<Project> projectCreated = projectService.getProjectsCreatedBy(user);
         model.addAttribute("projects", projectCreated);
         return "home/projects";
     }

@@ -38,9 +38,4 @@ public class UserServiceImpl implements UserService {
             return create(username, password, email);
         }
     }
-
-    @Override
-    public Set<Project> getProjectCreated(User user) {
-        return projectRepository.findByCreator(user);
-    }
 }
