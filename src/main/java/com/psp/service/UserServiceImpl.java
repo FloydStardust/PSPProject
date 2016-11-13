@@ -7,6 +7,7 @@ import com.psp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -26,6 +27,16 @@ public class UserServiceImpl implements UserService {
     public User create(String username, String password, String email) {
         final User user = User.build(username, password, email);
         return userRepository.save(user);
+    }
+
+    @Override
+    public User createIfNotExists(String username, String password, String email) {
+        final Optional<User> userMaybe = userRepository.findByName(username);
+        if (userMaybe.isPresent()) {
+            return userMaybe.get();
+        } else {
+            return create(username, password, email);
+        }
     }
 
     @Override
