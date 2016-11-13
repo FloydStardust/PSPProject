@@ -42,3 +42,25 @@
     margin-top: 8px;
     margin-bottom: 8px;
 }
+.risk-detail{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+.layout-m2{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.risk-detail-title{
+    font-size:20px;
+    margin-bottom: 5px;
+}
+.rd-content{
+    font-size:16px;
+    font-family: 微软雅黑;
+    padding-left: 10px;
+    line-height: 30px;
+}
+.font-weight-b{
+    font-weight: bold;
+}
