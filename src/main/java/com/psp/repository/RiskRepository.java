@@ -13,4 +13,5 @@ import java.util.Set;
 @Repository
 public interface RiskRepository extends CrudRepository<Risk, Long> {
     Set<Risk> findByProject(Project project);
+    Set<Risk> findByProjectId(Long id);
 }

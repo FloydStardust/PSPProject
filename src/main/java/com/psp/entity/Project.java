@@ -24,4 +24,10 @@ public class Project {
         project.creator = creator;
         return project;
     }
+
+    public static Project withId(Long id) {
+        Project project = new Project();
+        project.id = id;
+        return project;
+    }
 }
