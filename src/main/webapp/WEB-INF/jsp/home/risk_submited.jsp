@@ -73,8 +73,8 @@
                 <td><a>project-34</a></td>
                 <td>管理风险</td>
                 <td>房产北京受到惩罚加快速度高哦啊接受到上帝啊</td>
-                <td>高</td>
-                <td>高</td>
+                <td><span class="label label-warning">中</span></td>
+                <td><span class="label label-warning">中</span></td>
                 <td>风险</td>
             </tr>
             </tbody>

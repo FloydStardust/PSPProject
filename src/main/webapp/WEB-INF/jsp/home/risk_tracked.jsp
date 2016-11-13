@@ -73,11 +73,11 @@
                 <td><a>project-34</a></td>
                 <td>管理风险</td>
                 <td>房产北京受到惩罚加快速度高哦啊接受到上帝啊</td>
-                <td>高</td>
-                <td>高</td>
+                <td><span class="label label-danger">高</span></td>
+                <td><span class="label label-warning">中</span></td>
                 <td>风险</td>
                 <td>
-                    <button class="btn btn-info" data-toggle="modal" data-target="#follow-risk-modal">风险跟踪</button>
+                    <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#follow-risk-modal">风险跟踪</button>
                 </td>
             </tr>
             </tbody>
@@ -96,11 +96,12 @@
                     <form action="" method="post" id="follow-risk-form">
                         <div class="form-group">
                             <label for="risk-description">风险描述</label>
-                            <input type="text" name="name" id="risk-description" class="form-control" placeholder="...">
-                            <label for="change-orNot">状态是否变化</label>
+                            <input type="text" name="name" id="risk-description" class="form-control" >
+                            <br>
+                            <label for="change-orNot">是否成为问题</label>
                             <select id="change-orNot">
-                                <option value="1">是</option>
-                                <option value="0">否</option>
+                                <option value="1" >是</option>
+                                <option value="0" selected>否</option>
                             </select>
                         </div>
                     </form>
