@@ -102,7 +102,7 @@
                                 <h4>${type.toString()}</h4>
                                 <c:forEach items="${roles}" var="role">
                                     <c:choose>
-                                        <c:when test = "${role.roleType.toString().equals(type.toString())}">
+                                        <c:when test = "${role.type.toString().equals(type.toString())}">
                                             <h5>${role.user.name}<button class="btn btn-xs btn-link float-right btn-delete" data-delete="${role.id}">移除</button></h5>
                                         </c:when>
                                         <c:otherwise></c:otherwise>
@@ -122,7 +122,7 @@
                                 <h4 class="modal-title">添加成员</h4>
                             </div>
                             <div class="modal-body">
-                                <form action="" method="post" id="add-member-form">
+                                <form action="/qa-monitor/projects/${project.id}/roles" method="post" id="add-member-form">
                                     <div class="form-group">
                                         <label for="member-select">成员选择</label>
                                         <select id="member-select">
