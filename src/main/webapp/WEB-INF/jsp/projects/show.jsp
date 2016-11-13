@@ -71,33 +71,27 @@
             <div class="tab-pane fade in active row" id="home">
                 <div class="col-md-8 div-border">
                     <h3 class="dash-title">最新动态</h3>
+                    <c:forEach items="${top5TrackRecords}" var="record">
                     <div class="layout-m1">
-                        <div class="font-18 ">ly1996 创建了 <a>project-02</a> 风险</div>
-                        <div class="p-risk-dis">
-                            <div class="font-16 ft-fml">类型 : 范围风险&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能性 : 高&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;影响程度 : 中</div>
-                            <div class="font-16 ft-fml">风险描述：快递费设为维护费稳定客户hi我都不玩空间非常
-                                鲍斯股份你参加考试大部分可接受的</div>
-                        </div>
-                        <div class="font-12">2012-2-34 12:00</div>
+                        <c:choose>
+                            <c:when test = "${record.createdAt.toString().equals(record.risk.createdAt.toString())}">
+                                <div class="font-18 ">${record.risk.creator.name} 创建了 <a>${record.risk.project.name}-${record.risk.id}</a> 风险</div>
+                                <div class="p-risk-dis">
+                                    <div class="font-16 ft-fml">类型 : ${record.risk.type.toString()}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能性 : ${record.risk.probability}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;影响程度 : ${record.risk.impact}</div>
+                                    <div class="font-16 ft-fml">风险描述：${record.description}</div>
+                                </div>
+                                <div class="font-12">${record.createdAt.toString()}</div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="font-18 ">${record.risk.tracker.name} 更新了 <a>${record.risk.project.name}-${record.risk.id}</a> 风险状态</div>
+                                <div class="p-risk-dis">
+                                    <div class="font-16 ft-fml">风险描述：${record.description}</div>
+                                </div>
+                                <div class="font-12">${record.createdAt.toString()}</div>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
-                    <div class="layout-m1">
-                        <div class="font-18 ">ly1996 更新了 <a>project-01</a> 风险状态</div>
-                        <div class="p-risk-dis">
-                            <div class="font-16 ft-fml">风险描述快递费设为维护费稳定客户hi我都不玩空间非常
-                                鲍斯股份你参加考试大部分可接受的</div>
-                        </div>
-                        <div class="font-12">2012-2-34 12:00</div>
-                    </div>
-                    <div class="layout-m1">
-                        <div class="font-18 ">ly1996 创建了 <a>project-01</a> 风险</div>
-                        <div class="p-risk-dis">
-                            <div class="font-16 ft-fml">类型 : 范围风险&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能性 : 高&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;影响程度 : 中</div>
-                            <div class="font-16 ft-fml">风险描述：快递费设为维护费稳定客户hi我都不玩空间非常
-                                鲍斯股份你参加考试大部分可接受的</div>
-                        </div>
-                        <div class="font-12">2012-2-34 12:00</div>
-                    </div>
-
+                    </c:forEach>
                 </div>
                 <div class="col-md-4 div-border-top">
                     <div class="member-div"><span class="font-20 ft-fml">项目成员</span><button
