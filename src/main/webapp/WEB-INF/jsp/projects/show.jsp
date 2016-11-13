@@ -151,7 +151,7 @@
                 </div><!-- /.modal -->
             </div>
             <div class="tab-pane fade" id="risk">
-                <button class="btn btn-info crt-btn" data-toggle="modal" data-target="#new-project-modal">新建风险</button>
+                <button class="btn btn-info crt-btn" data-toggle="modal" data-target="#create-risk-modal">新建风险</button>
                 <table class="table">
                     <thead>
                     <tr>
@@ -183,6 +183,56 @@
                     </tbody>
                 </table>
             </div>
+            <%-- 风险创建--%>
+            <div class="modal fade" tabindex="-1" role="dialog" id="create-risk-modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">风险创建</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" method="post" id="create-risk-form">
+                                <div class="form-group">
+                                    <label for="risk-type">风险描述</label>s
+                                    <select id = "risk-type">
+                                        <option value = "1">配置风险</option>
+                                        <option value = "2">不知道什么风险</option>
+                                    </select>
+                                    <label for="risk-description">风险描述</label>
+                                    <input type="text" name="name" id="risk-description" class="form-control" placeholder="...">
+                                    <label for="follower">跟踪者</label>s
+                                    <select id = "follower">
+                                        <option value = "1">ly1996</option>
+                                        <option value = "2">wcy1995</option>
+                                    </select>
+                                    <label for="possibility">可能性</label>s
+                                    <select id = "possibility">
+                                        <option value = "1">低</option>
+                                        <option value = "2">中</option>
+                                        <option value="3">高</option>
+                                    </select>
+                                    <label for="affect">影响程度</label>s
+                                    <select id = "affect">
+                                        <option value = "1">低</option>
+                                        <option value = "2">中</option>
+                                        <option value="3">高</option>
+                                    </select>
+                                    <label for="risk-trigger">触发器</label>
+                                    <input type="text" name="name" id="risk-trigger" class="form-control" placeholder="...">
+                                    <label for="risk-measure">风险应对措施</label>
+                                    <input type="text" name="name" id="risk-measure" class="form-control" placeholder="...">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary" form="create-risk-form">增加</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
         </div>
     </div>
 </main>
