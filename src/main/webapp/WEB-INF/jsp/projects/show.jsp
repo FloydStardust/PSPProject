@@ -103,7 +103,7 @@
                                 <c:forEach items="${roles}" var="role">
                                     <c:choose>
                                         <c:when test = "${role.roleType.toString().equals(type.toString())}">
-                                            <h5>${role.user.name}<button class="btn btn-xs btn-link float-right">移除</button></h5>
+                                            <h5>${role.user.name}<button class="btn btn-xs btn-link float-right btn-delete" data-delete="${role.id}">移除</button></h5>
                                         </c:when>
                                         <c:otherwise></c:otherwise>
                                     </c:choose>
@@ -241,6 +241,31 @@
             </div><!-- /.modal -->
         </div>
     </div>
+    <script>
+        $('.btn-delete').on('click', function () {
+            var id = this.dataset.delete;
+            $.confirm({
+                title: '确认删除?',
+                backgroundDismiss: true,
+                animationSpeed: 200,
+                buttons: {
+                    confirm: function () {
+                        $.ajax('/qa-monitor/projects/'+${ project.id} +'/roles/'+ id, {
+                            method: 'DELETE',
+                            success: function () {
+                                window.location.reload();
+                            },
+                            error: function () {
+                                $.alert('删除失败');
+                            }
+                        })
+                    },
+                    cancel: function () {
+                    }
+                }
+            })
+        })
+    </script>
 </main>
 </body>
 </html>
