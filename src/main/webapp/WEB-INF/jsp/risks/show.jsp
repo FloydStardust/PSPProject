@@ -44,11 +44,11 @@
 <main class="container">
     <div class="row title-div">
         <div class="title-name">
-            <a>风险管理系统</a> / 风险管理系统-1
+            <a href="/qa-monitor/projects/${risk.project.id}">${risk.project.name}</a> / ${risk.project.name}-${risk.id}
         </div >
         <div class="title-people">
-            创建者：ly1996 &nbsp;&nbsp;&nbsp;
-            跟踪者：karry
+            创建者：${risk.creator.name} &nbsp;&nbsp;&nbsp;
+            跟踪者：${risk.tracker.name}
         </div>
     </div>
     <div class="row">
@@ -57,20 +57,43 @@
             <legend class="font-weight-b">详情</legend>
             <div class="rd-content">
                 <div class="font-weight-b">
-                    风险描述：技术人员离职会对项目的开发造成影响
+                    风险描述：${risk.description}
                 </div>
                 <div>
                     <div class="font-16 ft-fml">
-                        类型 : 进度风险&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        可能性 : <span class="label label-warning">中</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        影响程度 : <span class="label label-danger">高</span>
+                        类型 : ${risk.type.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        可能性 :
+                        <c:choose>
+                            <c:when test="${risk.probability==Probability.HIGH}">
+                                <span class="label label-danger">高</span>
+                            </c:when>
+                            <c:when test="${risk.probability==Probability.MEDIUM}">
+                                <span class="label label-warning">中</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="label label-info">低</span>
+                            </c:otherwise>
+                        </c:choose>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        影响程度 :
+                        <c:choose>
+                            <c:when test="${risk.probability==Probability.HIGH}">
+                                <span class="label label-danger">高</span>
+                            </c:when>
+                            <c:when test="${risk.probability==Probability.MEDIUM}">
+                                <span class="label label-warning">中</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="label label-info">低</span>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </div>
                 <div>
-                    触发器/阈值：某技术人员提交离职申请
+                    触发器/阈值：${risk.threshold}
                 </div>
                 <div>
-                    风险应对措施：在未变成问题前无需关心；在变成问题后从xx技术部门紧急调派技术人员
+                    风险应对措施：${risk.action}
                 </div>
             </div>
         </fieldset>
@@ -78,46 +101,28 @@
             <div class="risk-detail-title font-weight-b">状态跟踪记录</div>
             <table class="table table-hover table-striped">
                 <tbody>
-                <tr>
-                    <td>
-                        <div class="layout-m2">
-                            <div class="font-18 ">ly1996 更新了 project-01 风险状态</div>
-                            <div class="p-risk-dis">
-                                <div class="font-16 ft-fml">将状态从风险改为问题</div>
-                            </div>
-                            <div class="font-12">2012-2-34 12:00</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="layout-m2">
-                            <div class="font-18 ">ly1996 更新了 project-01 风险状态</div>
-                            <div class="p-risk-dis">
-                                <div class="font-16 ft-fml">风险描述快递费设为维护费稳定客户hi我都不玩空间非常
-                                    鲍斯股份你参加考试大部分可接受的</div>
-                            </div>
-                            <div class="font-12">2012-2-34 12:00</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="layout-m2">
-                            <div class="font-18 ">ly1996 创建了 project-01 风险</div>
-                            <div class="p-risk-dis">
-                                <div class="font-16 ft-fml">
-                                    类型 : 进度风险&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    可能性 : 中&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    影响程度 : 高
+                <c:forEach items="${trackRecords}" var="trackRecord">
+                    <tr>
+                        <td>
+                            <div class="layout-m2">
+                                <div class="font-18 ">${risk.tracker.name} 更新了 ${risk.project.name}-${risk.id} 风险状态</div>
+                                <c:choose>
+                                    <c:when test="${trackRecord.happened==true}">
+                                        <div class="p-risk-dis">
+                                            <div class="font-16 ft-fml">将状态从风险改为问题</div>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                    </c:otherwise>
+                                </c:choose>
+                                <div class="p-risk-dis">
+                                    <div class="font-16 ft-fml">${trackRecord.description}</div>
                                 </div>
-                                <div class="font-16 ft-fml">风险描述：快递费设为维护费稳定客户hi我都不玩空间非常
-                                    鲍斯股份你参加考试大部分可接受的</div>
+                                <div class="font-12">${trackRecord.createdAt}</div>
                             </div>
-                            <div class="font-12">2012-2-34 12:00</div>
-                        </div>
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </fieldset>
