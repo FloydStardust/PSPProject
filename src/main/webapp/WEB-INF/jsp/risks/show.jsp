@@ -64,10 +64,10 @@
                         类型 : ${risk.type.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                         可能性 :
                         <c:choose>
-                            <c:when test="${risk.probability==Probability.HIGH}">
+                            <c:when test="${risk.probability=='HIGH'}">
                                 <span class="label label-danger">高</span>
                             </c:when>
-                            <c:when test="${risk.probability==Probability.MEDIUM}">
+                            <c:when test="${risk.probability=='MEDIUM'}">
                                 <span class="label label-warning">中</span>
                             </c:when>
                             <c:otherwise>
@@ -75,12 +75,12 @@
                             </c:otherwise>
                         </c:choose>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                        影响程度 :${risk.impact}
+                        影响程度 :
                         <c:choose>
-                            <c:when test="${risk.impact==Impact.HIGH}">
+                            <c:when test="${risk.impact=='HIGH'}">
                                 <span class="label label-danger">高</span>
                             </c:when>
-                            <c:when test="${risk.impact==Impact.MEDIUM}">
+                            <c:when test="${risk.impact=='MEDIUM'}">
                                 <span class="label label-warning">中</span>
                             </c:when>
                             <c:otherwise>

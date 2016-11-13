@@ -76,10 +76,10 @@
                     <td>${risk.description}</td>
                     <td>
                         <c:choose>
-                            <c:when test="${risk.probability==Probability.HIGH}">
+                            <c:when test="${risk.probability=='HIGH'}">
                                 <span class="label label-danger">高</span>
                             </c:when>
-                            <c:when test="${risk.probability==Probability.MEDIUM}">
+                            <c:when test="${risk.probability=='MEDIUM'}">
                                 <span class="label label-warning">中</span>
                             </c:when>
                             <c:otherwise>
@@ -89,10 +89,10 @@
                     </td>
                     <td>
                         <c:choose>
-                            <c:when test="${risk.impact==Impact.HIGH}">
+                            <c:when test="${risk.impact=='HIGH'}">
                                 <span class="label label-danger">高</span>
                             </c:when>
-                            <c:when test="${risk.impact==Impact.MEDIUM}">
+                            <c:when test="${risk.impact=='MEDIUM'}">
                                 <span class="label label-warning">中</span>
                             </c:when>
                             <c:otherwise>
