@@ -166,25 +166,19 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${risks}" var="risk">
-                        <tr>
                             <td><a>${risk.id}</a></td>
                             <td>${risk.type.toString()}</td>
                             <td>${risk.description}</td>
                             <td>${risk.probability}</td>
                             <td>${risk.impact}</td>
-                            <%
-                                if(risk.happened)
-                                {
-                            %>
-                            <td>风险</td>
-                            <%
-                                }else
-                                {
-                            %>
-                            <td>问题</td>
-                            <%
-                                }
-                            %>
+                            <c:choose>
+                                <c:when test = "${risk.happened == false}">
+                                    <td>风险</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td>问题</td>
+                                </c:otherwise>
+                            </c:choose>
                         </tr>
                     </c:forEach>
                     </tbody>
