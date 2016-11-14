@@ -72,6 +72,16 @@ public class RiskController {
         return "redirect:/projects/" + projectId;
     }
 
+    @PostMapping("/{riskId:\\d+}/update")
+    String update(@PathVariable Long projectId,
+                  @PathVariable Long riskId,
+                  @RequestParam String probability,
+                  @RequestParam String impact,
+                  @RequestParam String threshold) {
+        riskService.updateById(riskId, probability, impact, threshold);
+        return "redirect:/projects/" + projectId + "/risks/" + riskId;
+    }
+
     @PostMapping("/{riskId:\\d+}/close")
     String close(@PathVariable Long projectId,
                  @PathVariable Long riskId) {
