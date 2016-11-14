@@ -22,6 +22,7 @@ public class RiskServiceImpl implements RiskService {
     private RiskTypeRepository riskTypeRepository;
     private UserRepository userRepository;
     private RiskRepository riskRepository;
+
     @Inject
     RiskServiceImpl(ProjectRepository projectRepository,
                     RiskTypeRepository riskTypeRepository,
@@ -40,7 +41,7 @@ public class RiskServiceImpl implements RiskService {
         final RiskType riskType = riskTypeRepository.findOne(riskTypeId);
         final User tracker = userRepository.findOne(trackerId);
         final Risk risk = Risk.build(description, Risk.Probability.valueOf(probability),
-                Risk.Impact.valueOf(impact), threshold , action, project, riskType, creator, tracker);
+                Risk.Impact.valueOf(impact), threshold, action, project, riskType, creator, tracker);
         return riskRepository.save(risk);
     }
 
@@ -52,5 +53,17 @@ public class RiskServiceImpl implements RiskService {
     @Override
     public Set<Risk> getRisksTrackedBy(User tracker) {
         return riskRepository.findByTracker(tracker);
+    }
+
+    @Override
+    public Risk closeById(Long riskId) {
+        final Risk risk = riskRepository.findOne(riskId);
+        return close(risk);
+    }
+
+    @Override
+    public Risk close(Risk risk) {
+        risk.setClosed(true);
+        return riskRepository.save(risk);
     }
 }
