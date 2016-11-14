@@ -74,7 +74,13 @@
                     <td><a href="/qa-monitor/projects/${project.id}">${project.name}</a></td>
                     <td>${project.creator.name}</td>
                     <td>
-                        <button class="btn btn-danger btn-xs btn-delete" data-delete="${project.id}">删除</button>
+                        <c:choose>
+                            <c:when test="${project.creator.name==user.name}">
+                                <button class="btn btn-danger btn-xs btn-delete" data-delete="${project.id}">删除</button>
+                            </c:when>
+                            <c:otherwise>
+                            </c:otherwise>
+                        </c:choose>
                     </td>
                 </tr>
             </c:forEach>
