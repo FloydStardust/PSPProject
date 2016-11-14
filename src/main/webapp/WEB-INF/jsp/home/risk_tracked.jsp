@@ -167,7 +167,7 @@
     <script>
         $('.btn-risk').on('click', function () {
             var id = $(this).attr('id');
-            $('follow-risk-form').attr("action","/qa-monitor/risks/"+id+"/track");
+            $('#follow-risk-form').attr("action","/qa-monitor/risks/"+id+"/track");
         })
     </script>
 </main>
