@@ -73,25 +73,69 @@
                 <div class="col-md-8 div-border">
                     <h3 class="dash-title">最新动态</h3>
                     <c:forEach items="${top5TrackRecords}" var="record">
-                    <div class="layout-m1">
-                        <c:choose>
-                            <c:when test = "${record.createdAt.toString().equals(record.risk.createdAt.toString())}">
-                                <div class="font-18 ">${record.risk.creator.name} 创建了 <a>${record.risk.project.name}-${record.risk.id}</a> 风险</div>
-                                <div class="p-risk-dis">
-                                    <div class="font-16 ft-fml">类型 : ${record.risk.type.toString()}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能性 : ${record.risk.probability}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;影响程度 : ${record.risk.impact}</div>
-                                    <div class="font-16 ft-fml">风险描述：${record.description}</div>
+                        <div class="layout-m1">
+                            <div class="font-18 ">${record.risk.tracker.name} 更新了 <a>${record.risk.project.name}-${record.risk.id}</a> 风险状态</div>
+                            <div class="p-risk-dis">
+                                <div class="font-16 ft-fml">风险描述：${record.description}</div>
+                            </div>
+                            <div class="font-12">${record.createdAt.toString()}</div>
+                        </div>
+                    </c:forEach>
+                    <c:forEach items="${risks}" var="risk">
+                        <div class="layout-m1">
+                            <div class="font-18 ">${risk.creator.name} 创建了 <a href="/qa-monitor/projects/${risk.project.id}/risks/${risk.id}">${risk.project.name}-${risk.id}</a> 风险</div>
+                            <div class="p-risk-dis">
+                                <div class="font-16 ft-fml">风险描述：${risk.description}</div>
+                                <div class="font-16 ft-fml">
+                                    类型 : ${risk.type.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                    可能性 :
+                                    <c:choose>
+                                        <c:when test="${risk.probability=='HIGH'}">
+                                            <span class="label label-danger">高</span>
+                                        </c:when>
+                                        <c:when test="${risk.probability=='MEDIUM'}">
+                                            <span class="label label-warning">中</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="label label-info">低</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                    影响程度 :
+                                    <c:choose>
+                                        <c:when test="${risk.impact=='HIGH'}">
+                                            <span class="label label-danger">高</span>
+                                        </c:when>
+                                        <c:when test="${risk.impact=='MEDIUM'}">
+                                            <span class="label label-warning">中</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="label label-info">低</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                    状态 :
+                                    <c:choose>
+                                        <c:when test="${risk.happened==true}">
+                                            问题
+                                        </c:when>
+                                        <c:otherwise>
+                                            风险
+                                        </c:otherwise>
+                                    </c:choose>
+                                    &nbsp;&nbsp;
+                                    <c:choose>
+                                        <c:when test="${risk.closed==true}">
+                                            <span class="label label-default">已关闭</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="label label-success">开放中</span>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
-                                <div class="font-12">${record.createdAt.toString()}</div>
-                            </c:when>
-                            <c:otherwise>
-                                <div class="font-18 ">${record.risk.tracker.name} 更新了 <a>${record.risk.project.name}-${record.risk.id}</a> 风险状态</div>
-                                <div class="p-risk-dis">
-                                    <div class="font-16 ft-fml">风险描述：${record.description}</div>
-                                </div>
-                                <div class="font-12">${record.createdAt.toString()}</div>
-                            </c:otherwise>
-                        </c:choose>
-                    </div>
+                            </div>
+                            <div class="font-12">${risk.createdAt.toString()}</div>
+                        </div>
                     </c:forEach>
                 </div>
                 <div class="col-md-4 div-border-top">
