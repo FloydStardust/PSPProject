@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="static/bootstrap-3.3.7/css/bootstrap.min.css">
     <link href="static/css/wcy.css" rel="stylesheet">
-    <title>风险管理系统·登录</title>
+    <title>PRMS·登录</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -20,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/qa-monitor">Project name</a>
+            <a class="navbar-brand" href="/qa-monitor">项目风险管理系统</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">

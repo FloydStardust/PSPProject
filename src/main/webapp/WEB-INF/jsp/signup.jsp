@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="static/bootstrap-3.3.7/css/bootstrap.min.css">
     <link href="static/css/wcy.css" rel="stylesheet">
-    <title>风险管理系统·注册</title>
+    <title>PRMS·注册</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -19,13 +20,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/qa-monitor">Project name</a>
+            <a class="navbar-brand" href="/qa-monitor">项目风险管理系统</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/qa-monitor/login">登录</a></li>
                 <li class="active"><a href="/qa-monitor/signup">注册</a></li>
-                <li><a href="/qa-monitor/home">用户主页</a></li>
+                <sec:authorize access="isAuthenticated()">
+                    <li><a href="/qa-monitor/home">用户主页</a></li>
+                </sec:authorize>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

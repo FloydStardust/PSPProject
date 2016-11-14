@@ -9,6 +9,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +24,7 @@
 
     <link href="/qa-monitor/static/css/wcy.css" rel="stylesheet">
     <link href="/qa-monitor/static/css/ly.css" rel="stylesheet">
-    <title>风险管理系统·项目详情</title>
+    <title>PRMS·项目详情</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-static-top">
@@ -36,27 +37,27 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/qa-monitor">Project name</a>
+            <a class="navbar-brand" href="/qa-monitor">项目风险管理系统</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/qa-monitor/login">登录</a></li>
-                <li><a href="/qa-monitor/signup">注册</a></li>
-                <li><a href="/qa-monitor/home">用户主页</a></li>
+                <li class="active"><a href="/qa-monitor/home">我的主页</a></li>
+                <sec:authorize access="isAuthenticated()">
+                    <form class="navbar-form navbar-left" action="/qa-monitor/logout" method="post">
+                        <button type="submit" class="btn">注销</button>
+                    </form>
+                </sec:authorize>
             </ul>
-            <form class="navbar-form navbar-left" action="/qa-monitor/logout" method="post">
-                <button type="submit" class="btn">注销</button>
-            </form>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 <main class="container">
     <div class="row title-div">
         <div class="title-name">
-            风险管理系统
+            ${project.name}
         </div >
         <div class="title-people">
-            创建者：ly1996
+            创建者：${project.creator.name}
         </div>
     </div>
     <div class="row">
