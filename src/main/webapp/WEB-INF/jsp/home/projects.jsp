@@ -78,9 +78,6 @@
                             <c:when test="${project.creator.name==user.name}">
                                 <button class="btn btn-danger btn-xs btn-delete" data-delete="${project.id}">删除</button>
                             </c:when>
-                            <c:otherwise>
-                                <button class="btn btn-danger btn-xs btn-delete" data-delete="${project.id}">退出</button>
-                            </c:otherwise>
                         </c:choose>
                     </td>
                 </tr>

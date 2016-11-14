@@ -116,16 +116,11 @@
                     风险应对措施：${risk.action}
                 </div><br>
                 <div>
-                    <c:choose>
-                        <c:when test="${user.name==risk.creator.name}">
                         <form action="/qa-monitor/projects/${risk.project.id}/risks/${risk.id}/close" method="post" >
                             <button type="submit"  class="btn btn-danger btn-sm">关闭该风险</button>
                         </form>
                         <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#change-risk-modal">修改风险内容</button>
-                        </c:when>
-                        <c:otherwise>
-                        </c:otherwise>
-                    </c:choose>
+                        
                 </div>
             </div>
         </fieldset>
