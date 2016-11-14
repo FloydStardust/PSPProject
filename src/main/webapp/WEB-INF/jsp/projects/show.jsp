@@ -208,7 +208,7 @@
                     <tbody>
                     <c:forEach items="${risks}" var="risk">
                         <tr>
-                            <td><a href="/qa-monitor/projects/${project.id}/risks/${risk.id}">${risk.id}</a></td>
+                            <td><a href="/qa-monitor/projects/${project.id}/risks/${risk.id}">${project.name}-${risk.id}</a></td>
                             <td>${risk.type.toString()}</td>
                             <td>${risk.description}</td>
                             <td>
