@@ -121,7 +121,7 @@
                         <form action="/qa-monitor/projects/${risk.project.id}/risks/${risk.id}/close" method="post" >
                             <button type="submit"  class="btn btn-danger btn-sm">关闭该风险</button>
                         </form>
-                        <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#change-risk-modal">修改风险内容</button>
+                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#change-risk-modal">修改风险内容</button>
                         </c:when>
                         <c:otherwise>
                         </c:otherwise>
@@ -238,7 +238,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="submit" class="btn btn-primary" form="change-risk-form">增加</button>
+                    <button type="submit" class="btn btn-primary" form="change-risk-form">修改</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
