@@ -118,7 +118,9 @@
                 <div>
                     <c:choose>
                         <c:when test="${user.name==risk.creator.name}">
-                            <button class="btn btn-danger btn-sm btn-delete"">关闭该风险</button>
+                        <form action="/qa-monitor/projects/${risk.project.id}/risks/${risk.id}/close" method="post" >
+                            <button type="submit"  class="btn btn-danger btn-sm">关闭该风险</button>
+                        </form>
                         </c:when>
                         <c:otherwise>
                         </c:otherwise>
@@ -201,30 +203,6 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <script>
-        $('.btn-delete').on('click', function () {
-            $.confirm({
-                title: '确认关闭?',
-                backgroundDismiss: true,
-                animationSpeed: 200,
-                buttons: {
-                    confirm: function () {
-                        $.ajax('/qa-monitor/projects/' + ${risk.project.id}+'/risks/'+${risk.id}+'/close', {
-                            method: 'close',
-                            success: function () {
-                                window.location.reload();
-                            },
-                            error: function () {
-                                $.alert('关闭失败');
-                            }
-                        })
-                    },
-                    cancel: function () {
-                    }
-                }
-            })
-        })
-    </script>
 </main>
 </body>
 </html>
