@@ -215,7 +215,7 @@
                     <h4 class="modal-title">风险修改</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="/qa-monitor/projects/${risk.project.id/risks/${risk.id}/update}" method="post" id="change-risk-form">
+                    <form action="/qa-monitor/projects/${risk.project.id}/risks/${risk.id}/update" method="post" id="change-risk-form">
                         <div class="form-group">
                             <label for="possibility">可能性</label>
                                     <select id = "possibility" name = "probability">
