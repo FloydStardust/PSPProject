@@ -123,7 +123,7 @@
                     <td>
                         <c:choose>
                             <c:when test="${risk.closed==false}">
-                                <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#follow-risk-modal">风险跟踪</button>
+                                <button class="btn btn-info btn-xs btn-risk" data-toggle="modal" data-target="#follow-risk-modal" id = "${risk.id}">风险跟踪</button>
                             </c:when>
                             <c:otherwise>
                             </c:otherwise>
@@ -144,15 +144,15 @@
                     <h4 class="modal-title">风险跟踪</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post" id="follow-risk-form">
+                    <form action="/qa-monitor/risks/" method="post" id="follow-risk-form">
                         <div class="form-group">
                             <label for="risk-description">状态</label>
-                            <input type="text" name="name" id="risk-description" class="form-control" >
+                            <input type="text" name="description" id="risk-description" class="form-control" >
                             <br>
                             <label for="change-orNot">是否成为问题</label>
                             <label class="checkbox-inline">
-                                <input type="radio" name="optionsRadiosinline" id="optionsRadios1" value="0" checked>否
-                                <input type="radio" name="optionsRadiosinline" id="optionsRadios2" value="1">是
+                                <input type="radio" name="happened" id="optionsRadios1" value="false" checked>否
+                                <input type="radio" name="happened" id="optionsRadios2" value="true">是
                             </label>
                         </div>
                     </form>
@@ -164,6 +164,12 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <script>
+        $('.btn-risk').on('click', function () {
+            var id = $(this).attr('id');
+            $('follow-risk-form').attr("action","/qa-monitor/risks/"+id+"/track");
+        })
+    </script>
 </main>
 </body>
 </html>
