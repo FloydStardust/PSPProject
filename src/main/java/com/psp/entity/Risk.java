@@ -1,6 +1,7 @@
 package com.psp.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -23,7 +24,7 @@ public class Risk {
     String threshold;     // 触发情况
 
     String action;      // 应对措施
-
+    @Setter
     Boolean happened;   // 是否变成问题
 
     Boolean closed;     // 是否关闭
@@ -38,8 +39,9 @@ public class Risk {
     User tracker;       // 跟踪者
 
     LocalDateTime createdAt;
+
     @PrePersist
-    public void prePersist () {
+    public void prePersist() {
         createdAt = LocalDateTime.now();
     }
 
