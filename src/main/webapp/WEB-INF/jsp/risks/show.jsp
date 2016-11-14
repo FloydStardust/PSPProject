@@ -114,11 +114,11 @@
                 </div>
                 <div>
                     风险应对措施：${risk.action}
-                </div>
+                </div><br>
                 <div>
                     <c:choose>
                         <c:when test="${user.name==risk.creator.name}">
-                            <button class="btn btn-danger btn-sm btn-delete" data-delete="${risk.id}">关闭该风险</button>
+                            <button class="btn btn-danger btn-sm btn-delete"">关闭该风险</button>
                         </c:when>
                         <c:otherwise>
                         </c:otherwise>
@@ -171,6 +171,30 @@
             </table>
         </fieldset>
     </div>
+    <script>
+        $('.btn-delete').on('click', function () {
+            $.confirm({
+                title: '确认关闭?',
+                backgroundDismiss: true,
+                animationSpeed: 200,
+                buttons: {
+                    confirm: function () {
+                        $.ajax('/qa-monitor/projects/' + ${risk.project.id}+'/risks/'+${risk.id}+'/close', {
+                            method: 'close',
+                            success: function () {
+                                window.location.reload();
+                            },
+                            error: function () {
+                                $.alert('关闭失败');
+                            }
+                        })
+                    },
+                    cancel: function () {
+                    }
+                }
+            })
+        })
+    </script>
 </main>
 </body>
 </html>
