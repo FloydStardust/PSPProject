@@ -131,7 +131,7 @@
             <div>
                 <c:choose>
                     <c:when test="${user.name==risk.tracker.name}">
-                        <button class="btn btn-primary btn-sm btn-delete" data-delete="${risk.id}">风险跟踪</button>
+                        <button class="btn btn-primary btn-sm btn-delete" data-toggle="modal" data-target="#follow-risk-modal">风险跟踪</button>
                     </c:when>
                     <c:otherwise>
                     </c:otherwise>
@@ -171,6 +171,36 @@
             </table>
         </fieldset>
     </div>
+    <%-- 风险跟踪--%>
+    <div class="modal fade" tabindex="-1" role="dialog" id="follow-risk-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">风险跟踪</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/qa-monitor/risks/${risk.id}/track" method="post" id="follow-risk-form">
+                        <div class="form-group">
+                            <label for="risk-description">状态</label>
+                            <input type="text" name="description" id="risk-description" class="form-control" >
+                            <br>
+                            <label for="change-orNot">是否成为问题</label>
+                            <label class="checkbox-inline">
+                                <input type="radio" name="happened" id="optionsRadios1" value="false" checked>否
+                                <input type="radio" name="happened" id="optionsRadios2" value="true">是
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary" form="follow-risk-form">增加</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 </main>
 </body>
 </html>
