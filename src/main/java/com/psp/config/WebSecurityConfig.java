@@ -11,8 +11,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.security.SecureRandom;
-
+/**
+ * spring security 配置
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity
@@ -37,6 +38,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         ;
     }
 
+    /**
+     * 排除不经过 spring security 的路径匹配
+     * @param web WebSecurity实例
+     * @throws Exception
+     */
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
@@ -44,6 +50,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**/*.html", "/**/*.css", "/**/*.js");
     }
 
+    /**
+     * 配置全局认证方式
+     * @param auth AuthenticationManagerBuilder 实例
+     * @throws Exception
+     */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth

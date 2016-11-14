@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+/**
+ * 用户在项目中的角色
+ */
 @Entity
 @Getter
 public class Role {

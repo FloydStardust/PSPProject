@@ -6,6 +6,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * 风险实体类
+ */
 @Entity
 @Getter
 @Setter

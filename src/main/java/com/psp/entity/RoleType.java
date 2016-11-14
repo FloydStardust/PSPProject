@@ -2,6 +2,9 @@ package com.psp.entity;
 
 import javax.persistence.*;
 
+/**
+ * 角色类型
+ */
 @Entity
 public class RoleType {
     @Id
