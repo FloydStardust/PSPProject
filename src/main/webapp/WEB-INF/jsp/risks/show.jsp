@@ -131,7 +131,7 @@
             <div>
                 <c:choose>
                     <c:when test="${user.name==risk.tracker.name}">
-                        <button class="btn btn-primary btn-sm btn-delete" data-toggle="modal" data-target="#follow-risk-modal">风险跟踪</button>
+                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#follow-risk-modal">风险跟踪</button>
                     </c:when>
                     <c:otherwise>
                     </c:otherwise>
