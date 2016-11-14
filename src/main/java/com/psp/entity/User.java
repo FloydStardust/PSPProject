@@ -16,6 +16,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 用户
+ */
 @Entity
 @Getter
 public class User implements UserDetails {

@@ -1,6 +1,5 @@
 package com.psp.service;
 
-import com.psp.entity.Project;
 import com.psp.entity.User;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;

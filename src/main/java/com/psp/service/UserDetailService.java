@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-
+/**
+ * 根据用户名查找对应用户
+ * 在 spring security 中使用
+ */
 @Service
 public class UserDetailService implements UserDetailsService {
     private UserRepository userRepository;

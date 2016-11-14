@@ -1,6 +1,5 @@
 package com.psp.service;
 
-import com.psp.entity.Project;
 import com.psp.entity.User;
 import com.psp.repository.ProjectRepository;
 import com.psp.repository.UserRepository;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * Created by jankin on 09/11/2016.

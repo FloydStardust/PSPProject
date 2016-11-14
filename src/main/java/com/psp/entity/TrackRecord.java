@@ -5,7 +5,9 @@ import lombok.Getter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-
+/**
+ * 风险跟踪记录
+ */
 @Entity
 @Getter
 public class TrackRecord {
