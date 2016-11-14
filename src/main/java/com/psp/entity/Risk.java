@@ -26,7 +26,7 @@ public class Risk {
     String action;      // 应对措施
     @Setter
     Boolean happened;   // 是否变成问题
-
+    @Setter
     Boolean closed;     // 是否关闭
 
     @ManyToOne

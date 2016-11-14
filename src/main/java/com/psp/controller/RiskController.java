@@ -71,4 +71,11 @@ public class RiskController {
         riskService.create(projectId, probability, impact, threshold, action, riskTypeId, creator, trackerId, description);
         return "redirect:/projects/" + projectId;
     }
+
+    @PostMapping("/{riskId:\\d+}/close")
+    String close(@PathVariable Long projectId,
+                 @PathVariable Long riskId) {
+        riskService.closeById(riskId);
+        return "redirect:/projects/" + projectId + "/risks/" + riskId;
+    }
 }
