@@ -13,5 +13,5 @@ public interface ProjectService {
     Project create(String name, User user);
 
     @Transactional
-    Set<Project> getProjectsCreatedBy(User user);
+    Set<Project> getProjectsRelatedTo(User user);
 }

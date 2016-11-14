@@ -40,8 +40,8 @@ public class HomeController {
     @GetMapping("/home/projects")
     String projects(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user", user);
-        final Set<Project> projectCreated = projectService.getProjectsCreatedBy(user);
-        model.addAttribute("projects", projectCreated);
+        final Set<Project> projectsRelated = projectService.getProjectsRelatedTo(user);
+        model.addAttribute("projects", projectsRelated);
         return "home/projects";
     }
 

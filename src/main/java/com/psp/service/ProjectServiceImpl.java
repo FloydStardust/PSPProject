@@ -24,7 +24,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Set<Project> getProjectsCreatedBy(User user) {
-        return projectRepository.findByCreator(user);
+    public Set<Project> getProjectsRelatedTo(User user) {
+        return projectRepository.findByRelatedUser(user);
     }
 }
