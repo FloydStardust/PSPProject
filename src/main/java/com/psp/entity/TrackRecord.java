@@ -21,8 +21,17 @@ public class TrackRecord {
     Risk risk;          // 所属的风险
 
     LocalDateTime createdAt;
+
     @PrePersist
-    public void prePersist () {
+    public void prePersist() {
         createdAt = LocalDateTime.now();
+    }
+
+    public static TrackRecord build(String description, Boolean happened, Risk risk) {
+        final TrackRecord record = new TrackRecord();
+        record.description = description;
+        record.happened = happened;
+        record.risk = risk;
+        return record;
     }
 }
