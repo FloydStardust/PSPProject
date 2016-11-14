@@ -44,12 +44,14 @@ public class RiskController {
     }
 
     @GetMapping("/{riskId:\\d+}")
-    String show(@PathVariable Long riskId,
+    String show(@AuthenticationPrincipal User user,
+                @PathVariable Long riskId,
                 Model model) {
         final Risk risk = riskRepository.findOne(riskId);
         if (risk == null) {
             throw new ResourceNotFoundException("Risk not found");
         } else {
+            model.addAttribute("user", user);
             model.addAttribute("risk", risk);
             model.addAttribute("trackRecords", trackRecordRepository.findByRisk(risk));
             return "risks/show";
