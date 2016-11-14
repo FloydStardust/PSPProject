@@ -25,7 +25,9 @@ public class TrackRecordServiceImpl implements TrackRecordService {
 
     @Override
     public TrackRecord create(String description, Boolean happened, Long riskId) {
-        final Risk risk = riskRepository.findOne(riskId);
+        Risk risk = riskRepository.findOne(riskId);
+        risk.setHappened(happened);
+        risk = riskRepository.save(risk);
         final TrackRecord record = TrackRecord.build(description, happened, risk);
         return trackRecordRepository.save(record);
     }
