@@ -66,4 +66,18 @@ public class RiskServiceImpl implements RiskService {
         risk.setClosed(true);
         return riskRepository.save(risk);
     }
+
+    @Override
+    public Risk updateById(Long riskId, String probability, String impact, String threshold) {
+        final Risk risk = riskRepository.findOne(riskId);
+        return update(risk, Risk.Probability.valueOf(probability), Risk.Impact.valueOf(impact), threshold);
+    }
+
+    @Override
+    public Risk update(Risk risk, Risk.Probability probability, Risk.Impact impact, String threshold) {
+        risk.setProbability(probability);
+        risk.setImpact(impact);
+        risk.setThreshold(threshold);
+        return riskRepository.save(risk);
+    }
 }

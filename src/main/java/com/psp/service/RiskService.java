@@ -22,4 +22,10 @@ public interface RiskService {
 
     @PreAuthorize("#risk.creator.id == principal.id")
     Risk close(Risk risk);
+
+    @Transactional
+    Risk updateById(Long riskId, String probability, String impact, String threshold);
+
+    @PreAuthorize("#risk.creator.id == principal.id")
+    Risk update(Risk risk, Risk.Probability probability, Risk.Impact impact, String threshold);
 }
