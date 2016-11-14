@@ -145,7 +145,7 @@
                 </c:forEach>
                 <tr>
                     <div class="layout-m1">
-                        <div class="font-18 ">${risk.creator.name} 创建了 <a href="/qa-monitor/projects/${risk.project.id}/risks/${risk.id}">${risk.project.name}-${risk.id}</a> 风险</div>
+                        <div class="font-18 ">${risk.creator.name} 创建了  ${risk.project.name}-${risk.id}  风险</div>
                         <div class="font-12">${risk.createdAt.toString()}</div>
                     </div>
                 </tr>
