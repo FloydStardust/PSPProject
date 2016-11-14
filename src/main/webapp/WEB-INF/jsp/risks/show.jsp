@@ -115,10 +115,28 @@
                 <div>
                     风险应对措施：${risk.action}
                 </div>
+                <div>
+                    <c:choose>
+                        <c:when test="${user.name==risk.creator.name}">
+                            <button class="btn btn-danger btn-sm btn-delete" data-delete="${risk.id}">关闭该风险</button>
+                        </c:when>
+                        <c:otherwise>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
             </div>
         </fieldset>
         <fieldset class="risk-detail">
             <div class="risk-detail-title font-weight-b">状态跟踪记录</div>
+            <div>
+                <c:choose>
+                    <c:when test="${user.name==risk.tracker.name}">
+                        <button class="btn btn-primary btn-sm btn-delete" data-delete="${risk.id}">风险跟踪</button>
+                    </c:when>
+                    <c:otherwise>
+                    </c:otherwise>
+                </c:choose>
+            </div>
             <table class="table table-hover table-striped">
                 <tbody>
                 <c:forEach items="${trackRecords}" var="trackRecord">
