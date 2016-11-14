@@ -261,6 +261,42 @@
                     </tbody>
                 </table>
             </div>
+            <%-- 修改风险 --
+            <div class="modal fade" tabindex="-1" role="dialog" id="modify-risk-modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">风险修改</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/qa-monitor/projects/${project.id}/risks" method="post" id="create-risk-form">
+                                <div class="form-group">
+                                    <label for="possibility">可能性</label>
+                                    <select id = "possibility" name = "probability">
+                                        <option value = "LOW">低</option>
+                                        <option value = "MEDIUM">中</option>
+                                        <option value="HIGH">高</option>
+                                    </select>
+                                    <br/>
+                                    <label for="affect">影响程度</label>
+                                    <select id = "affect" name = "impact">
+                                        <option value = "LOW">低</option>
+                                        <option value = "MEDIUM">中</option>
+                                        <option value="HIGH">高</option>
+                                    </select>
+                                    <br/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary" form="new-project-form">修改</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
             <%-- 风险创建--%>
             <div class="modal fade" tabindex="-1" role="dialog" id="create-risk-modal">
                 <div class="modal-dialog" role="document">
